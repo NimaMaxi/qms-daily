@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>QMS Daily · GM, GN and Deploy on QMS Testnet</title>
+<meta name="description" content="Send GM and GN, or deploy a contract, on QMS Testnet with one click from your own wallet.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.13.4/ethers.umd.min.js"></script>
+<style>
+  :root {
+    --bg: #120d2b;
+    --text: #efeaff;
+    --muted: #a79fcf;
+    --line: #2e2757;
+    --gm: #f2b66d;
+    --gm-ink: #2a1a05;
+    --gn: #3b3a8f;
+    --gn-ink: #e6e4ff;
+    --dp: #12353a;
+    --dp-ink: #8fe6cb;
+    --err: #ff8f8f;
+    --ok: #8fe6cb;
+    --font: "Sora", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  html { color-scheme: dark; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 28px 20px 64px; }
+  header.top { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .brand { font-weight: 800; font-size: 1.05rem; letter-spacing: -0.01em; }
+  .pulse { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 0.85rem; }
+  .pulse i { width: 8px; height: 8px; border-radius: 50%; background: var(--ok); display: inline-block; }
+  .pulse i.tick { animation: tick 0.9s ease-out; }
+  @keyframes tick { from { box-shadow: 0 0 0 0 rgba(143,230,203,0.7); } to { box-shadow: 0 0 0 12px rgba(143,230,203,0); } }
+  @media (prefers-reduced-motion: reduce) { .pulse i.tick { animation: none; } }
+
+  h1 { font-size: clamp(2.2rem, 7vw, 3.6rem); line-height: 1.05; letter-spacing: -0.03em; margin: 56px 0 14px; font-weight: 800; }
+  .lede { color: var(--muted); max-width: 52ch; margin: 0 0 28px; }
+
+  .wallet { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; }
+  button { font: inherit; cursor: pointer; border: 0; border-radius: 12px; padding: 12px 20px; font-weight: 600; }
+  button:focus-visible, a:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+  button:disabled { opacity: 0.55; cursor: not-allowed; }
+  .connect { background: var(--text); color: #1a1340; }
+  .addr { font-family: var(--mono); font-size: 0.9rem; color: var(--muted); }
+
+  .band { border-radius: 20px; padding: 26px 26px 22px; margin-bottom: 14px; }
+  .band h2 { margin: 0 0 4px; font-size: 1.6rem; letter-spacing: -0.02em; }
+  .band p { margin: 0 0 18px; max-width: 46ch; opacity: 0.85; }
+  .band .row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+  .band .note { font-size: 0.88rem; opacity: 0.85; }
+  .gm { background: var(--gm); color: var(--gm-ink); }
+  .gm button { background: var(--gm-ink); color: var(--gm); }
+  .gn { background: var(--gn); color: var(--gn-ink); }
+  .gn button { background: var(--gn-ink); color: #1a1650; }
+  .dp { background: var(--dp); color: var(--dp-ink); }
+  .dp button { background: var(--dp-ink); color: #0b2428; }
+
+  .status { min-height: 1.6em; margin: 22px 0 8px; font-size: 0.95rem; }
+  .status.err { color: var(--err); }
+  .status.ok { color: var(--ok); }
+
+  h3 { margin: 36px 0 10px; font-size: 1.05rem; }
+  ul.log { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+  ul.log li { display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 0.92rem; flex-wrap: wrap; }
+  ul.log a { color: var(--text); font-family: var(--mono); font-size: 0.85rem; overflow-wrap: anywhere; }
+  .empty { color: var(--muted); font-size: 0.92rem; }
+  footer { margin-top: 48px; color: var(--muted); font-size: 0.85rem; }
+  footer a { color: var(--text); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">QMS Daily</div>
+    <div class="pulse"><i id="dot"></i><span id="block">Connecting to QMS Testnet…</span></div>
+  </header>
+
+  <h1>Say it on QMS.</h1>
+  <p class="lede">Send a GM in the morning, a GN at night, or deploy your own contract on QMS Testnet. Every action is a real transaction signed by your own wallet.</p>
+
+  <div class="wallet">
+    <button class="connect" id="connect">Connect wallet</button>
+    <span class="addr" id="addr"></span>
+  </div>
+
+  <section class="band gm">
+    <h2>GM</h2>
+    <p>Once per UTC day. Your GM is recorded on-chain as an event.</p>
+    <div class="row"><button id="btn-gm" disabled>Send GM</button><span class="note" id="note-gm"></span></div>
+  </section>
+
+  <section class="band gn">
+    <h2>GN</h2>
+    <p>Once per UTC day, separate from your GM.</p>
+    <div class="row"><button id="btn-gn" disabled>Send GN</button><span class="note" id="note-gn"></span></div>
+  </section>
+
+  <section class="band dp">
+    <h2>Deploy</h2>
+    <p>Deploys a small contract from your wallet. Your address becomes its owner on-chain, and you can find it in the explorer.</p>
+    <div class="row"><button id="btn-dp" disabled>Deploy contract</button><span class="note" id="note-dp"></span></div>
+  </section>
+
+  <div class="status" id="status" role="status" aria-live="polite"></div>
+
+  <h3>Your transactions this session</h3>
+  <ul class="log" id="log"></ul>
+  <p class="empty" id="empty">Nothing yet. Connect your wallet and send your first GM.</p>
+
+  <footer>
+    You need test QMS for gas: get it from the <a href="https://faucet.testnet.qms.finance" target="_blank" rel="noopener">QMS faucet</a>. Test QMS has no value. This site never asks for a private key or seed phrase. Contract: <a id="contract-link" href="#" target="_blank" rel="noopener"></a>
+  </footer>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var CFG = {
+    chainId: 19480,
+    chainHex: "0x4c18",
+    rpc: "https://rpc.testnet.qms.finance",
+    explorer: "https://testnet.qmsscan.io",
+    daily: "0x0167c46060ecfeaac3bab5ad2f2324b1dbf21593"
+  };
+
+  var DAILY_ABI = [
+    "function gm()",
+    "function gn()",
+    "function lastGM(address) view returns (uint256)",
+    "function lastGN(address) view returns (uint256)"
+  ];
+
+  var BUILD_ABI = [{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"inputs":[],"name":"deployedAt","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"deployer","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"tag","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"}];
+  var BUILD_BYTECODE = "0x60c0604052348015600e575f5ffd5b50336080524260a05260805160a0516101746100365f395f60d901525f609a01526101745ff3fe608060405234801561000f575f5ffd5b506004361061003f575f3560e01c806351f9106614610043578063d5f3948814610095578063eae4c19f146100d4575b5f5ffd5b61007f6040518060400160405280601781526020017f4465706c6f796564207769746820514d53204461696c7900000000000000000081525081565b60405161008c9190610109565b60405180910390f35b6100bc7f000000000000000000000000000000000000000000000000000000000000000081565b6040516001600160a01b03909116815260200161008c565b6100fb7f000000000000000000000000000000000000000000000000000000000000000081565b60405190815260200161008c565b602081525f82518060208401528060208501604085015e5f604082850101526040601f19601f8301168401019150509291505056fea2646970667358221220b4d0601b1cd4e0042896d354028e181b0b3ce0646cf2984c278b4c857281be7a64736f6c634300081c0033";
+
+  var $ = function (id) { return document.getElementById(id); };
+  var els = {
+    block: $("block"), dot: $("dot"), connect: $("connect"), addr: $("addr"),
+    gm: $("btn-gm"), gn: $("btn-gn"), dp: $("btn-dp"),
+    noteGm: $("note-gm"), noteGn: $("note-gn"), noteDp: $("note-dp"),
+    status: $("status"), log: $("log"), empty: $("empty"), link: $("contract-link")
+  };
+
+  var ethers = window.ethers;
+  if (!ethers) {
+    els.status.className = "status err";
+    els.status.textContent = "Could not load the ethers library. Check your internet connection and reload.";
+    return;
+  }
+
+  var dailyAddress = ethers.getAddress(CFG.daily);
+  els.link.href = CFG.explorer + "/address/" + dailyAddress;
+  els.link.textContent = dailyAddress.slice(0, 8) + "…" + dailyAddress.slice(-6);
+
+  var reader = new ethers.JsonRpcProvider(CFG.rpc, CFG.chainId, { staticNetwork: true });
+  var account = null;
+  var busy = false;
+
+  function setStatus(msg, kind) {
+    els.status.textContent = msg || "";
+    els.status.className = "status" + (kind ? " " + kind : "");
+  }
+
+  function short(a) { return a.slice(0, 6) + "…" + a.slice(-4); }
+
+  function friendlyError(e) {
+    if (!e) return "Something went wrong.";
+    if (e.code === "ACTION_REJECTED" || e.code === 4001) return "You rejected the request in your wallet.";
+    var text = (e.reason || e.shortMessage || e.message || "").toString();
+    if (/Already GM today/i.test(text)) return "You already sent GM today (UTC). Come back tomorrow.";
+    if (/Already GN today/i.test(text)) return "You already sent GN today (UTC). Come back tomorrow.";
+    if (/insufficient funds/i.test(text)) return "Not enough test QMS for gas. Get some from the faucet.";
+    return text.length > 180 ? text.slice(0, 180) + "…" : (text || "Something went wrong.");
+  }
+
+  function addLog(label, hash, state) {
+    els.empty.style.display = "none";
+    var li = document.createElement("li");
+    var left = document.createElement("span");
+    left.textContent = label + (state ? " · " + state : "");
+    var a = document.createElement("a");
+    a.href = CFG.explorer + "/tx/" + hash;
+    a.target = "_blank";
+    a.rel = "noopener";
+    a.textContent = hash.slice(0, 10) + "…" + hash.slice(-8);
+    li.appendChild(left);
+    li.appendChild(a);
+    els.log.insertBefore(li, els.log.firstChild);
+    return left;
+  }
+
+  /* Live block counter */
+  var lastBlock = null;
+  function pollBlock() {
+    reader.getBlockNumber().then(function (n) {
+      els.block.textContent = "QMS Testnet · block " + n.toLocaleString("en-US");
+      if (lastBlock !== null && n !== lastBlock) {
+        els.dot.classList.remove("tick");
+        void els.dot.offsetWidth;
+        els.dot.classList.add("tick");
+      }
+      lastBlock = n;
+    }).catch(function () {
+      els.block.textContent = "QMS Testnet unreachable. Check status.testnet.qms.finance";
+    });
+  }
+  pollBlock();
+  setInterval(pollBlock, 8000);
+
+  /* Wallet */
+  function getInjected() { return window.ethereum || null; }
+
+  function ensureChain(eth) {
+    return eth.request({ method: "wallet_switchEthereumChain", params: [{ chainId: CFG.chainHex }] })
+      .catch(function (e) {
+        var msg = (e && e.message) || "";
+        if (e && (e.code === 4902 || e.code === -32603 || /unrecognized|not added|add/i.test(msg))) {
+          return eth.request({
+            method: "wallet_addEthereumChain",
+            params: [{
+              chainId: CFG.chainHex,
+              chainName: "QMS Testnet",
+              nativeCurrency: { name: "QMS", symbol: "QMS", decimals: 18 },
+              rpcUrls: [CFG.rpc],
+              blockExplorerUrls: [CFG.explorer]
+            }]
+          });
+        }
+        throw e;
+      });
+  }
+
+  function getSigner() {
+    var eth = getInjected();
+    var bp = new ethers.BrowserProvider(eth);
+    return bp.getSigner();
+  }
+
+  function enableButtons(on) {
+    els.gm.disabled = !on;
+    els.gn.disabled = !on;
+    els.dp.disabled = !on;
+  }
+
+  function connect() {
+    var eth = getInjected();
+    if (!eth) {
+      setStatus("No wallet found. Install MetaMask or Rabby, or open this page inside your wallet's browser.", "err");
+      return;
+    }
+    setStatus("Check your wallet to connect…");
+    eth.request({ method: "eth_requestAccounts" })
+      .then(function (accts) {
+        account = ethers.getAddress(accts[0]);
+        return ensureChain(eth);
+      })
+      .then(function () {
+        els.addr.textContent = short(account);
+        els.connect.textContent = "Connected";
+        els.connect.disabled = true;
+        enableButtons(true);
+        setStatus("Wallet connected on QMS Testnet.", "ok");
+        refreshDaily();
+      })
+      .catch(function (e) { setStatus(friendlyError(e), "err"); });
+  }
+
+  /* Read today's state */
+  function refreshDaily() {
+    if (!account) return;
+    var c = new ethers.Contract(dailyAddress, DAILY_ABI, reader);
+    Promise.all([reader.getBlock("latest"), c.lastGM(account), c.lastGN(account)])
+      .then(function (r) {
+        var day = BigInt(Math.floor(r[0].timestamp / 86400));
+        var gmDone = r[1] === day;
+        var gnDone = r[2] === day;
+        els.gm.disabled = gmDone || busy;
+        els.gn.disabled = gnDone || busy;
+        els.noteGm.textContent = gmDone ? "Done for today. See you tomorrow (UTC)." : "";
+        els.noteGn.textContent = gnDone ? "Done for today. See you tomorrow (UTC)." : "";
+      })
+      .catch(function () { /* keep buttons usable; the contract will enforce the rule */ });
+  }
+
+  /* Fees: leave headroom above the base fee, as the QMS docs recommend */
+  function feeOverrides() {
+    return reader.getBlock("latest").then(function (b) {
+      var base = b.baseFeePerGas || 0n;
+      return reader.send("eth_maxPriorityFeePerGas", []).then(function (t) {
+        return BigInt(t);
+      }).catch(function () { return 1000000000n; }).then(function (tip) {
+        return { maxFeePerGas: base * 2n + tip, maxPriorityFeePerGas: tip };
+      });
+    });
+  }
+
+  function lock(on) {
+    busy = on;
+    if (on) { enableButtons(false); } else { enableButtons(true); refreshDaily(); }
+  }
+
+  function track(tx, label) {
+    var span = addLog(label, tx.hash, "pending");
+    setStatus(label + " sent. Waiting for the next block (about 10 seconds)…");
+    return tx.wait().then(function (rc) {
+      if (rc && rc.status === 1) {
+        span.textContent = label + " · confirmed";
+        return rc;
+      }
+      span.textContent = label + " · failed";
+      throw new Error("The transaction failed on-chain.");
+    });
+  }
+
+  function sendDaily(fn, label) {
+    if (busy) return;
+    lock(true);
+    setStatus("Confirm " + label + " in your wallet…");
+    var signer;
+    getSigner()
+      .then(function (s) { signer = s; return ensureChain(getInjected()); })
+      .then(function () { return feeOverrides(); })
+      .then(function (fees) {
+        var c = new ethers.Contract(dailyAddress, DAILY_ABI, signer);
+        return c[fn](fees);
+      })
+      .then(function (tx) { return track(tx, label); })
+      .then(function () { setStatus(label + " confirmed on QMS Testnet.", "ok"); })
+      .catch(function (e) { setStatus(friendlyError(e), "err"); })
+      .then(function () { lock(false); });
+  }
+
+  function deployContract() {
+    if (busy) return;
+    lock(true);
+    setStatus("Confirm the deployment in your wallet…");
+    var signer;
+    getSigner()
+      .then(function (s) { signer = s; return ensureChain(getInjected()); })
+      .then(function () { return feeOverrides(); })
+      .then(function (fees) {
+        var factory = new ethers.ContractFactory(BUILD_ABI, BUILD_BYTECODE, signer);
+        return factory.deploy(fees);
+      })
+      .then(function (contract) {
+        var tx = contract.deploymentTransaction();
+        return track(tx, "Deploy").then(function () { return contract.getAddress(); });
+      })
+      .then(function (address) {
+        els.noteDp.innerHTML = "";
+        var a = document.createElement("a");
+        a.href = CFG.explorer + "/address/" + address;
+        a.target = "_blank";
+        a.rel = "noopener";
+        a.style.color = "inherit";
+        a.textContent = "Your contract: " + short(address);
+        els.noteDp.appendChild(a);
+        setStatus("Contract deployed on QMS Testnet.", "ok");
+      })
+      .catch(function (e) { setStatus(friendlyError(e), "err"); })
+      .then(function () { lock(false); });
+  }
+
+  els.connect.addEventListener("click", connect);
+  els.gm.addEventListener("click", function () { sendDaily("gm", "GM"); });
+  els.gn.addEventListener("click", function () { sendDaily("gn", "GN"); });
+  els.dp.addEventListener("click", deployContract);
+
+  var eth = getInjected();
+  if (eth && eth.on) {
+    eth.on("accountsChanged", function () { window.location.reload(); });
+    eth.on("chainChanged", function () { window.location.reload(); });
+  }
+})();
+</script>
+</body>
+</html>
