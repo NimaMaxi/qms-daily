@@ -6,6 +6,7 @@
 <title>QMS Daily · GM, GN and Deploy on QMS Testnet</title>
 <meta name="description" content="Send GM and GN, or deploy a contract, on QMS Testnet with one click from your own wallet.">
 <meta name="theme-color" content="#0b0722">
+<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAE20lEQVR42u2bT4scVRTFf/e+qp6e6YkTk2CyGkQTRIlIQINiQBQVFHe6EfUTuNGNG7+DfgmX4iagIBJQ4iaIQYgJGpWYVRD/JJpM90zVu9dFVfe0yZhUV091Z5gqaGho6tZ7591z3r2nXsv7b7qziy9ll18tAC0ALQAtAC0ALQAtAC0ALQAtAFNd29VOzL4tSaZCTxwQQHCpNnhxKabqjlN8FxyREoKKcSjjII6bzAeAbCOCDsAVqzJ5QMRK8LqIFo83M8wH4GBIpTiIFxnjXZIkmS0AqtDvR068vMaxpwMWQbRagrtBCMoXn/T58ds9OPDQsQHPvyrE6OiEcc5+vcbpT3ssLgbMZpUBAhadBx5JWT3SHa7JBDwXlvcO8HLAy3sTVo8s1NKMv//q89VJnxcFHDcwc1SrgRDNCKrkWU4WcwDyLMetU8bRCeII2cY8RLAEXAREpeC2VrsxEcXJefE15akXihTYs6IgGSGkJber6IAiykg855IBtbgjEVw5cKjDgUM62o3dBcSAsHO2wdtxfLjVba3hjsWAj/Z9HVvJW++R0Y8+od7MBQABIiDlwG8edFE3SKgyGf9PvCYK18Yo0L8RuXEtQ7YUx+or6eb0VlIWe7ozKBDNCRq4eG6djz7MWVrqYLdQodrkVYS1tZw33hEee7I70W4zfxF0JWbLxFxrFShlCGK2AJ7tTBEUjaNtspaaaBGjySapoQwoQfDhZ4owLjR57Xo/oGYvUKywuxSdXHQEQXT79+lbU8JwEzw6hjDSV5kDBTodUJVSmTPcA2ANMUuKyTuI5iSaApB2ppOIWiN1g86CcvozuHB2nUE/55lXhNUHE9wc1BtZfTdBA1z+KePLkxt0lxL+uAKdro46y9kA4EIIcOnCIpfOw421nEefyFg9rBQ5KY0RAFH+/C1w5lRCbykBgSSFui/5WxGsxUZx8hzuf3jA/kPCoJ+z76AU3BhaVQ2pAG7suy9y/Lm8pIDx6w9dkkRrZUE9ABQ21o0TL8HR4wvAQimCXvoC0sj0RQ0HVg+nvPVuIYLnzvS5+J2R3qN4nDEFNjYKNyjPDLekbGm1oQzwssMEt4Q8M8y8cIRkxhQoqjNHZNPC2nSErEHGFi2xaPlt3BFqRfCu6gVKI0SGnynCiO80AGSsYApF2Wr1We8WGqVVc36AGCG9Tkg6SM0qRUUIaQaSAOnOACBo4eEdOZry3geUDVJdS8xxC/RWEsBQDTsnAxZ7gcVecpvJTmKKWmPldUOOUCh7hq0m6eXK6pgtXr5kkZuLqNJZkjBh5twlIihbvrYpWloN46tquMtYIXXn2He/CP5fdrgCOb9fyfjnWvH4PSuR/QcVvFP51dicHaFhW1z49m6MDjvc6cZokaAJn3+8zjenitV+/NmM19/uEid4Oepm+LgjNI8MSDuC6FD5Kz5QFRCSNCENxeOTtHCPJ4/jhSM0cwAcNAi/nM9ZuXcNizLBAQkjBOX61YhoFweuX825fDGWBySkUhzM0SD8/H2OhoX6ijXNHyZilm/LERm3OPERGWHziExIk3lRIADLZYNY55BUWfGpEmRps9GsVGjK0CHBfE4aYD7Wi1YcuW/VM4zEbMI4Pv3WuE3t8HZtW7Pb/lo/oAWgBaAFoAWgBaAFoAWgBaAFYJdf/wK54PBdLdAPbAAAAABJRU5ErkJggg==">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&display=swap" rel="stylesheet">
@@ -50,7 +51,7 @@
 
   header.top { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
   .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.1rem; letter-spacing: -0.01em; }
-  .brand svg { width: 34px; height: 34px; }
+  .brand .logo { width: 36px; height: 36px; border-radius: 10px; display: block; }
   .top-right { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
   .pulse { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 0.85rem; }
   .pulse i { width: 8px; height: 8px; border-radius: 50%; background: var(--ok); display: inline-block; }
@@ -99,7 +100,7 @@
   .gm button { background: #301018; color: #ffd9a0; }
   .gn { background: linear-gradient(145deg, #4f46e5, #9333ea); color: #f5f0ff; }
   .gn button { background: #f5f0ff; color: #2a1670; }
-  .dp { grid-column: 1 / -1; min-height: 200px; background: linear-gradient(135deg, #06b6d4, #10b981); color: #032a2c; }
+  .dp { background: linear-gradient(135deg, #06b6d4, #10b981); color: #032a2c; }
   .dp button { background: #032a2c; color: #9ff5de; }
 
   .panel { margin-top: 22px; border-radius: 22px; padding: 20px 22px; background: var(--glass); border: 1px solid var(--line); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
@@ -115,8 +116,87 @@
   footer { margin-top: 36px; color: var(--muted); font-size: 0.85rem; }
   footer a { color: var(--text); }
 
+
+  .btn { display: inline-block; text-decoration: none; border-radius: 14px; padding: 13px 22px; font-weight: 600; font-size: 1rem; }
+  .btn.secondary { background: var(--glass); border: 1px solid var(--line); color: var(--text); transition: transform 0.15s ease, background 0.15s ease; }
+  .btn.secondary:hover { transform: translateY(-1px); background: rgba(255,255,255,0.14); }
+
+  .chips { display: flex; gap: 10px; flex-wrap: wrap; margin: -18px 0 34px; }
+  .chip { background: var(--glass); border: 1px solid var(--line); border-radius: 14px; padding: 10px 16px; min-width: 96px; }
+  .chip b { display: block; font-size: 1.5rem; letter-spacing: -0.02em; line-height: 1.2; }
+  .chip span { color: var(--muted); font-size: 0.82rem; }
+
+  .section { margin-top: 56px; }
+  .section h2.title { font-size: 1.8rem; letter-spacing: -0.03em; margin: 0 0 6px; }
+  .section .sub { color: var(--muted); margin: 0 0 22px; max-width: 60ch; }
+  .section .sub a { color: var(--text); }
+
+  .badges { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; }
+  .badge { background: var(--glass); border: 1px solid var(--line); border-radius: 22px; padding: 16px; display: flex; flex-direction: column; gap: 8px; }
+  .badge img { width: 100%; aspect-ratio: 1; border-radius: 16px; display: block; transition: filter 0.2s ease, opacity 0.2s ease; }
+  .badge.locked img { filter: grayscale(0.85); opacity: 0.5; }
+  .badge h4 { margin: 4px 0 0; font-size: 1.1rem; letter-spacing: -0.02em; }
+  .badge .meta { color: var(--muted); font-size: 0.85rem; }
+  .bar { height: 6px; border-radius: 999px; background: rgba(255,255,255,0.12); overflow: hidden; }
+  .bar i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, #a78bfa, #22d3ee); border-radius: 999px; transition: width 0.4s ease; }
+  .badge button { margin-top: 4px; width: 100%; background: linear-gradient(95deg, #a78bfa, #22d3ee); color: #0b0722; font-weight: 800; }
+  .badge button:disabled { background: rgba(255,255,255,0.1); color: var(--muted); font-weight: 600; }
+
+  .boardwrap { overflow-x: auto; border-radius: 22px; background: var(--glass); border: 1px solid var(--line); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+  table.board { width: 100%; border-collapse: collapse; font-size: 0.95rem; min-width: 520px; }
+  table.board th { text-align: left; color: var(--muted); font-weight: 600; font-size: 0.85rem; padding: 14px 16px; border-bottom: 1px solid var(--line); }
+  table.board td { padding: 13px 16px; border-bottom: 1px solid var(--line); }
+  table.board tr:last-child td { border-bottom: 0; }
+  table.board .num { text-align: right; font-variant-numeric: tabular-nums; }
+  table.board th.num { text-align: right; }
+  table.board a { color: var(--text); font-family: var(--mono); font-size: 0.88rem; }
+  table.board tr.me td { background: rgba(167,139,250,0.18); }
+  table.board tr.top1 .rank { color: #fde047; font-weight: 800; }
+  table.board tr.top2 .rank { color: #e5e7eb; font-weight: 800; }
+  table.board tr.top3 .rank { color: #fdba74; font-weight: 800; }
+  .boardmsg { padding: 22px 18px; color: var(--muted); }
+  .boardtools { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 12px; color: var(--muted); font-size: 0.9rem; flex-wrap: wrap; }
+  .boardtools button { background: var(--glass); border: 1px solid var(--line); color: var(--text); padding: 8px 14px; font-size: 0.9rem; }
+
+  .toast { position: fixed; left: 50%; bottom: 18px; transform: translateX(-50%); z-index: 20; max-width: min(92vw, 640px); padding: 13px 20px; border-radius: 16px; background: rgba(20,14,50,0.94); border: 1px solid var(--line); font-size: 0.95rem; box-shadow: 0 16px 40px rgba(0,0,0,0.5); cursor: pointer; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+  .toast[hidden] { display: none; }
+  .toast.err { border-color: var(--err); color: var(--err); }
+  .toast.ok { border-color: var(--ok); color: var(--ok); }
+
+
+  .tabs { display: flex; gap: 8px; margin: 0 0 28px; padding: 6px; background: var(--glass); border: 1px solid var(--line); border-radius: 18px; width: fit-content; max-width: 100%; }
+  .tab { background: transparent; color: var(--muted); padding: 11px 22px; border-radius: 13px; font-weight: 600; }
+  .tab[aria-selected="true"] { background: linear-gradient(95deg, #a78bfa, #22d3ee); color: #0b0722; font-weight: 800; }
+  .tab:not([aria-selected="true"]):hover { color: var(--text); background: rgba(255,255,255,0.08); }
+  [hidden] { display: none !important; }
+
+  .dp { grid-column: auto; min-height: 230px; }
+  .dn { background: linear-gradient(145deg, #38bdf8, #e879f9); color: #1a0b2e; }
+  .dn button { background: #1a0b2e; color: #f5d0fe; }
+  .dn button.ghost { background: rgba(26,11,46,0.14); color: #1a0b2e; border: 1px solid rgba(26,11,46,0.4); }
+  .fields { display: grid; grid-template-columns: 2fr 1fr; gap: 10px; margin: 0 0 18px; position: relative; }
+  .fields label span { display: block; font-size: 0.78rem; opacity: 0.8; margin-bottom: 4px; }
+  .fields input { width: 100%; font: inherit; padding: 10px 12px; border-radius: 11px; border: 1px solid rgba(26,11,46,0.35); background: rgba(255,255,255,0.55); color: #1a0b2e; }
+  .fields input:focus-visible { outline: 3px solid #1a0b2e; outline-offset: 1px; }
+
+
+  .streaknote { margin: -16px 0 30px; color: var(--muted); font-size: 0.95rem; }
+  .streaknote.warn { color: #fdba74; }
+  .streaknote.lost { color: #fda4af; }
+  .streaknote.good { color: var(--ok); }
+
+  .badge { position: relative; }
+  .badge .rar { display: inline-block; align-self: flex-start; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.12em; padding: 3px 10px; border-radius: 999px; border: 1px solid currentColor; }
+  .badge.r0 { box-shadow: none; }
+  .badge.r1 { border-color: rgba(103,232,249,0.45); }
+  .badge.r2 { border-color: rgba(240,171,252,0.55); box-shadow: 0 0 28px rgba(139,92,246,0.25); }
+  .badge.r3 { border-color: rgba(251,191,36,0.7); box-shadow: 0 0 40px rgba(245,158,11,0.3); background: linear-gradient(160deg, rgba(251,191,36,0.12), rgba(255,255,255,0.05)); }
+  .badge.locked { box-shadow: none; }
+  .badges { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+
   @media (max-width: 680px) {
     .cards { grid-template-columns: 1fr; }
+    .fields { grid-template-columns: 1fr; }
     h1 { margin-top: 44px; }
   }
 </style>
@@ -127,12 +207,7 @@
 <div class="wrap">
   <header class="top">
     <div class="brand">
-      <svg viewBox="0 0 40 40" aria-hidden="true">
-        <defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#a78bfa"/><stop offset="1" stop-color="#22d3ee"/></linearGradient></defs>
-        <circle cx="20" cy="20" r="14" fill="none" stroke="url(#lg)" stroke-width="4"/>
-        <path d="M24 24l8 8" stroke="url(#lg)" stroke-width="4" stroke-linecap="round"/>
-        <circle cx="20" cy="20" r="3" fill="#fff"/>
-      </svg>
+      <img class="logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAHiUlEQVR42u2dPY8kRxnHf09V9czu7NyufS/SyRfcCcGJzBYZiSXkE0IisLFEBhIvn4CYkA9B5oAUAltCQkLgwAmIABlHlgMEgSXL2GffsjOzM91VD0HVzPTsrrndm+6Z6b16pDndavbq6a5/1fP6rzr55Y9UybI1MXkKMgAZgCwZgAxAlgxABiBLBiADkCUDkAHIkgHIAGTJAGQAsmQAMgBZMgDXWlybgwuAAhK7nrruWLW/6bnvNX23vq66NkRBpaMAiI97bP4C5tmnRYLUJkRRNbWJ0qhLJOnS9fa2zv9xiD+u6OoQAFVpCaFKL+IIKvU5e+riq/8oKIhHFawpsG45hCBUpcP7CjEB1BIQzmyKC8e/WLWCBFQVawqcW3dHbRgAAXzwHN4+5uhmRdCAYFHCYk6+cvF95ZgKBIxxHD8uOH58AxEb16l6ju6MOHxxRtBq4dou0qWX2rmgOtflOP78BtZa2uCPNA+AKBoEU4z58S8K7n3tCNRDmqxnl0AIYIzh3Xf+y+9/4xkO45gnJ4FHr8F3Xr+JhoAYWd9kpGf++J8Tfv2rEVoeRhPasD9oYQcoqkK/Jxzd6sefMciaAZeiafWa9Niyuj/UAYaQtDWhT1BeuNWjV0yYztrxAq2FoQrJHDSwGi8QKxaRaC6MrMZI0pghFXyoaJO51p4TVhBcwliTIzZrQhqnNoSSyRRM0QNgMp3b/qYkLAAQLFB2CYB5uBioxynrrstoVCzKlFe+vcedlwLWxjDRe8O9+32UCSJ7a2cBusH81NEZ0RidELh9V7l9d/8MwKfJbgvgO5PkdwiAtKt0H9WApiRpaTL60fGaAHSHb9wdANSBVCkhM4ismjTVuZ9RoMgAXM6pXiFFkhS0ycW/u8RDFiWES9d7npYiX08A5jUCj2rMHTY3CboIYcFubfJ3wARJStwcxsyd5ybEEgKIVFud/K0DoAQEx3Ti+cNvP2U26mNaDl5CgN5gxvd+eIfB0DaQn3QZAFVEDKGCv793wPiLG1intHVoSgR8JQxeGPHdN6JPUfWI8LyaoKUlGhwYmJlYZm4VgKRLduLNdycMDSF+JLQLwFxPDkPPhp56yXC0qVJJBuDsZMtOTlDbklkRGYDnW1ppSYIkZoGufBQFtYjEuuXumJv0fCogHkGWzydaW6fauJl07bxMfMgQlBA0xvsIYBCbGidasDtVSwGquG68S0tFU9SkHdsBNRkMHGYltT0lBAP0wMxaJTxdbcnMIPRQZhg7BfZW3qFbHbFkgYK3/OntCXv7BlQoq5KHL1vuf71ANSA6LwPsAgIulkUE/vVRxUcfPKFwBYhyOgmEyrZmLVsAIDbLfdnnz79zqIIxcHICr/9sxoNvHMT0H3emqbJNC2RAK0QKPvzHmHfe6jEc9lLBDvb24zstGXOdMEHC4CAOH62QUBTLZvc5xtpO+AGhKBzDYZ+DoV1kzG1mzjkMvb6ZsDIe+ZoJmlGW1TIs3bm2bXyusqw4OZkCqyaoO+Rc8WiwuN6U175fnnHCDtUZUKAba75cZu5jT0C15JsvO8zPSwrHwgn/9Y+WajZIxN9m85cWAIiLyVjPozf2KfbcmTA00QZld8JQpEK0hyo8eOh48HC4+Ko8rfjbuxOYdjAPGI8rbvRMLRHrI7ZCKFHttRpfX23N9MCUMXn0fSCkREwYj9ttW7bHjEMxRjBGUCWVH0Kil2jrJ0+ubv8tqCA2lSJUEJHUq+6SE9Y6NVGo0xKl9kdqx+9UCBpbk271qbROc2m+fpXD0C1LBuD65gFX8RfU0uLcktwOALKbE3TNAajZQrP8tMmKUEPr5K/uAaAwHgXGo7ARYhZF2JlSyFYBiBRzxTj41qsjZqNqY9REU+wD4RzN/fkCAAOU9Pcdb/7kJTZHzjWpxFyx7bMEO8ALEkQqQthkk37OBxV46tHxawvA3AjPj5vqRvfe+RD4uTygcYX4XAGpUmngPLlWk+eOQFq6It05IybxDgjFgIbFhC/RSafxJRCrrEUGoHmrZUAmiChSo47EisopQRXRQQIh74DGTZYqIIbPPlE+/vcp1kZT433g3n3h1t106KNDJa6WmHFzamL9cqA6xe9ZRlUCHkuf9//yJW+/VXAwjOOdnFT84KcVj948IqhfO7YXwsaok67FBYtS1RyiWX/ARdmiYL+/z14/julLgzFN9gwN8zPHbfeuTYvzjxFXW/0NR/IaGReqEGoOuTltcSRjbLoioTM7IHaWZjPlyeMpw6MBgmf9yzp0flfKBRmspiOnAbPye+uZIbAcfz6jnEJbnUlp4z9yW1xZdnMzV5apeg5vrndlWZ2oF4n1AYPlyRdRV3euLJu7W2M5/uxFvvx0TsZyBKWVS/uMWJ7855DHn1SI0bUv7ZPF/UZgjMO0eHKz1TDUFX5ZhEfRta+tTCxl9YRalKUorvC4XlO6TNIVzunqFACqNl0+lS5T9Q28xIVUFom6dFlcU7+uEQXUtl4naheAxbtIM2P93++bO2WpV6lR7WoYmiUDkAHIkgHIAGTJAGQAsmQAMgBZMgAZgCwZgAxAlgxABiBLBiADkCUDsBPyP3fsCla/RSHIAAAAAElFTkSuQmCC" alt="QMS logo" width="36" height="36">
       <span>QMS Daily</span>
     </div>
     <div class="top-right">
@@ -156,43 +231,98 @@
 
   <div class="wallet">
     <button class="connect" id="connect">Connect wallet</button>
+    <a class="btn secondary" href="https://faucet.testnet.qms.finance" target="_blank" rel="noopener">Get test QMS</a>
     <span class="addr" id="addr"></span>
   </div>
 
-  <div class="cards">
-    <section class="card gm">
-      <svg class="deco" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/></svg>
-      <h2>GM</h2>
-      <p>Once per UTC day. Your GM is recorded on-chain as an event.</p>
-      <div class="row"><button id="btn-gm" disabled>Send GM</button><span class="note" id="note-gm"></span></div>
-    </section>
+  <div class="chips" id="chips" hidden>
+    <div class="chip"><b id="st-days">0</b><span>Days active</span></div>
+    <div class="chip"><b id="st-streak">0</b><span>Current streak</span></div>
+    <div class="chip"><b id="st-best">0</b><span>Best streak</span></div>
+    <div class="chip"><b id="st-gm">0</b><span>Your GM</span></div>
+    <div class="chip"><b id="st-gn">0</b><span>Your GN</span></div>
+    <div class="chip"><b id="st-rank">-</b><span id="st-rank-sub">Leaderboard rank</span></div>
+  </div>
+  <p class="streaknote" id="streak-note" hidden></p>
 
-    <section class="card gn">
-      <svg class="deco" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"/></svg>
-      <h2>GN</h2>
-      <p>Once per UTC day, separate from your GM.</p>
-      <div class="row"><button id="btn-gn" disabled>Send GN</button><span class="note" id="note-gn"></span></div>
-    </section>
+  <nav class="tabs" role="tablist" aria-label="Sections">
+    <button class="tab" role="tab" id="tab-home" aria-selected="true" aria-controls="panel-home" type="button">Home</button>
+    <button class="tab" role="tab" id="tab-nfts" aria-selected="false" aria-controls="panel-nfts" tabindex="-1" type="button">NFTs</button>
+    <button class="tab" role="tab" id="tab-board" aria-selected="false" aria-controls="panel-board" tabindex="-1" type="button">Leaderboard</button>
+  </nav>
 
-    <section class="card dp">
-      <svg class="deco" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l9 5v10l-9 5-9-5V7z"/><path d="M12 22V12M3 7l9 5 9-5"/></svg>
-      <h2>Deploy</h2>
-      <p>Deploys a small contract from your wallet. Your address becomes its owner on-chain, and you can find it in the explorer.</p>
-      <div class="row"><button id="btn-dp" disabled>Deploy contract</button><span class="note" id="note-dp"></span></div>
+  <div id="panel-home" role="tabpanel" aria-labelledby="tab-home">
+    <div class="cards">
+      <section class="card gm">
+        <svg class="deco" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/></svg>
+        <h2>GM</h2>
+        <p>Once per UTC day. Counts as your daily check-in and keeps your streak alive.</p>
+        <div class="row"><button id="btn-gm" disabled>Send GM</button><span class="note" id="note-gm"></span></div>
+      </section>
+
+      <section class="card gn">
+        <svg class="deco" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"/></svg>
+        <h2>GN</h2>
+        <p>Once per UTC day, separate from your GM. Also counts as a check-in day.</p>
+        <div class="row"><button id="btn-gn" disabled>Send GN</button><span class="note" id="note-gn"></span></div>
+      </section>
+
+      <section class="card dp">
+        <svg class="deco" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l9 5v10l-9 5-9-5V7z"/><path d="M12 22V12M3 7l9 5 9-5"/></svg>
+        <h2>Deploy</h2>
+        <p>Deploys a small contract from your wallet. Your address becomes its owner on-chain, and you can find it in the explorer.</p>
+        <div class="row"><button id="btn-dp" disabled>Deploy contract</button><span class="note" id="note-dp"></span></div>
+      </section>
+
+      <section class="card dn">
+        <svg class="deco" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5L5 21"/></svg>
+        <h2>Deploy NFT</h2>
+        <p>Create your own NFT collection, then mint from it. Artwork is generated on-chain.</p>
+        <div class="fields">
+          <label><span>Collection name</span><input id="nft-name" type="text" maxlength="32" value="My QMS NFT" autocomplete="off"></label>
+          <label><span>Symbol</span><input id="nft-symbol" type="text" maxlength="10" value="QMSN" autocomplete="off"></label>
+        </div>
+        <div class="row"><button id="btn-nft" disabled>Deploy NFT</button><button id="btn-nft-mint" class="ghost" hidden>Mint NFT</button><span class="note" id="note-nft"></span></div>
+      </section>
+    </div>
+
+    <div class="panel" style="margin-top:22px">
+      <h3 style="margin-top:0">Your transactions this session</h3>
+      <ul class="log" id="log"></ul>
+      <p class="empty" id="empty">Nothing yet. Connect your wallet and send your first GM.</p>
+    </div>
+
+  </div>
+
+  <div id="panel-nfts" role="tabpanel" aria-labelledby="tab-nfts" hidden>
+    <section class="section" id="badges-section" style="margin-top:8px">
+      <h2 class="title">Milestone badges</h2>
+      <p class="sub">A day counts when you send a GM or a GN. Your total days never reset, so a missed day only restarts your streak. Reach 15, 30, 60 or 100 days to mint a badge. The higher the rarity, the more elaborate the artwork. All art is drawn on-chain on QMS Testnet. <a id="collection-link" href="#" target="_blank" rel="noopener">See the collection in the explorer</a></p>
+      <div class="badges" id="badges"></div>
     </section>
   </div>
 
-  <div class="panel">
-    <div class="status" id="status" role="status" aria-live="polite"></div>
-    <h3>Your transactions this session</h3>
-    <ul class="log" id="log"></ul>
-    <p class="empty" id="empty">Nothing yet. Connect your wallet and send your first GM.</p>
+  <div id="panel-board" role="tabpanel" aria-labelledby="tab-board" hidden>
+    <section class="section" id="board-section" style="margin-top:8px">
+      <h2 class="title">Leaderboard</h2>
+      <p class="sub">Ranked by total active days, then by current streak. A day counts when you send a GM or a GN.</p>
+      <div class="boardtools"><span id="board-count"></span><button id="board-refresh" type="button">Refresh</button></div>
+      <div class="boardwrap">
+        <table class="board">
+          <thead><tr><th>#</th><th>Wallet</th><th class="num">Days</th><th class="num">Streak</th><th class="num">GM</th><th class="num">GN</th></tr></thead>
+          <tbody id="board-body"></tbody>
+        </table>
+        <div class="boardmsg" id="board-msg">Loading the leaderboard…</div>
+      </div>
+    </section>
   </div>
 
   <footer>
     You need test QMS for gas: get it from the <a href="https://faucet.testnet.qms.finance" target="_blank" rel="noopener">QMS faucet</a>. Test QMS has no value. This site never asks for a private key or seed phrase. Contract: <a id="contract-link" href="#" target="_blank" rel="noopener"></a>
   </footer>
 </div>
+
+<div class="toast" id="status" role="status" aria-live="polite" hidden></div>
 
 <script>
 (function () {
@@ -203,56 +333,91 @@
     chainHex: "0x4c18",
     rpc: "https://rpc.testnet.qms.finance",
     explorer: "https://testnet.qmsscan.io",
-    daily: "0x137efdb0007053d42f7d3b67bea1c58b50e7b6f2"
+    contract: "0x0000000000000000000000000000000000000000"
   };
+  var ZERO = "0x0000000000000000000000000000000000000000";
 
-  var DAILY_ABI = [
+  var ABI = [
     "function gm()",
     "function gn()",
-    "function lastGM(address) view returns (uint256)",
-    "function lastGN(address) view returns (uint256)"
+    "function mint(uint8 tier)",
+    "function userCount() view returns (uint256)",
+    "function page(uint256 offset, uint256 limit) view returns (tuple(address user, uint32 gm, uint32 gn, uint32 activeDays, uint32 streak)[] rows)",
+    "function statusOf(address user) view returns (tuple(uint32 gms, uint32 gns, uint32 activeDays, uint32 streak, uint32 best, uint256 gmDay, uint256 gnDay, uint256 lastActiveDay, uint256 mask) s)",
+    "event BadgeMinted(address indexed user, uint8 tier, uint256 tokenId)"
   ];
 
   var BUILD_ABI = [{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"inputs":[],"name":"deployedAt","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"deployer","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"tag","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"}];
   var BUILD_BYTECODE = "0x60c0604052348015600e575f5ffd5b50336080524260a05260805160a0516101746100365f395f60d901525f609a01526101745ff3fe608060405234801561000f575f5ffd5b506004361061003f575f3560e01c806351f9106614610043578063d5f3948814610095578063eae4c19f146100d4575b5f5ffd5b61007f6040518060400160405280601781526020017f4465706c6f796564207769746820514d53204461696c7900000000000000000081525081565b60405161008c9190610109565b60405180910390f35b6100bc7f000000000000000000000000000000000000000000000000000000000000000081565b6040516001600160a01b03909116815260200161008c565b6100fb7f000000000000000000000000000000000000000000000000000000000000000081565b60405190815260200161008c565b602081525f82518060208401528060208501604085015e5f604082850101526040601f19601f8301168401019150509291505056fea2646970667358221220b4d0601b1cd4e0042896d354028e181b0b3ce0646cf2984c278b4c857281be7a64736f6c634300081c0033";
+
+  var NFT_ABI = [{"inputs":[{"internalType":"string","name":"name_","type":"string"},{"internalType":"string","name":"symbol_","type":"string"}],"stateMutability":"nonpayable","type":"constructor"},{"inputs":[{"internalType":"address","name":"sender","type":"address"},{"internalType":"uint256","name":"tokenId","type":"uint256"},{"internalType":"address","name":"owner","type":"address"}],"name":"ERC721IncorrectOwner","type":"error"},{"inputs":[{"internalType":"address","name":"operator","type":"address"},{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"ERC721InsufficientApproval","type":"error"},{"inputs":[{"internalType":"address","name":"approver","type":"address"}],"name":"ERC721InvalidApprover","type":"error"},{"inputs":[{"internalType":"address","name":"operator","type":"address"}],"name":"ERC721InvalidOperator","type":"error"},{"inputs":[{"internalType":"address","name":"owner","type":"address"}],"name":"ERC721InvalidOwner","type":"error"},{"inputs":[{"internalType":"address","name":"receiver","type":"address"}],"name":"ERC721InvalidReceiver","type":"error"},{"inputs":[{"internalType":"address","name":"sender","type":"address"}],"name":"ERC721InvalidSender","type":"error"},{"inputs":[{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"ERC721NonexistentToken","type":"error"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"owner","type":"address"},{"indexed":true,"internalType":"address","name":"approved","type":"address"},{"indexed":true,"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"Approval","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"owner","type":"address"},{"indexed":true,"internalType":"address","name":"operator","type":"address"},{"indexed":false,"internalType":"bool","name":"approved","type":"bool"}],"name":"ApprovalForAll","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"from","type":"address"},{"indexed":true,"internalType":"address","name":"to","type":"address"},{"indexed":true,"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"Transfer","type":"event"},{"inputs":[{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"approve","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"owner","type":"address"}],"name":"balanceOf","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"getApproved","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"owner","type":"address"},{"internalType":"address","name":"operator","type":"address"}],"name":"isApprovedForAll","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"mint","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"name","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"owner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"ownerOf","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"from","type":"address"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"safeTransferFrom","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"from","type":"address"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"tokenId","type":"uint256"},{"internalType":"bytes","name":"data","type":"bytes"}],"name":"safeTransferFrom","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"operator","type":"address"},{"internalType":"bool","name":"approved","type":"bool"}],"name":"setApprovalForAll","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"bytes4","name":"interfaceId","type":"bytes4"}],"name":"supportsInterface","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"symbol","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"tokenURI","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"totalSupply","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"from","type":"address"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"transferFrom","outputs":[],"stateMutability":"nonpayable","type":"function"}];
+  var NFT_BYTECODE = "0x60a060405234801561000f575f5ffd5b50604051611bea380380611bea83398101604081905261002e916100f4565b81815f61003b83826101dd565b50600161004882826101dd565b50503360805250610297915050565b634e487b7160e01b5f52604160045260245ffd5b5f82601f83011261007a575f5ffd5b81516001600160401b0381111561009357610093610057565b604051601f8201601f19908116603f011681016001600160401b03811182821017156100c1576100c1610057565b6040528181528382016020018510156100d8575f5ffd5b8160208501602083015e5f918101602001919091529392505050565b5f5f60408385031215610105575f5ffd5b82516001600160401b0381111561011a575f5ffd5b6101268582860161006b565b602085015190935090506001600160401b03811115610143575f5ffd5b61014f8582860161006b565b9150509250929050565b600181811c9082168061016d57607f821691505b60208210810361018b57634e487b7160e01b5f52602260045260245ffd5b50919050565b601f8211156101d857805f5260205f20601f840160051c810160208510156101b65750805b601f840160051c820191505b818110156101d5575f81556001016101c2565b50505b505050565b81516001600160401b038111156101f6576101f6610057565b61020a816102048454610159565b84610191565b6020601f82116001811461023c575f83156102255750848201515b5f19600385901b1c1916600184901b1784556101d5565b5f84815260208120601f198516915b8281101561026b578785015182556020948501946001909201910161024b565b508482101561028857868401515f19600387901b60f8161c191681555b50505050600190811b01905550565b6080516119346102b65f395f81816101ec015261038301526119345ff3fe608060405234801561000f575f5ffd5b50600436106100fb575f3560e01c80636352211e11610093578063a22cb46511610063578063a22cb46514610216578063b88d4fde14610229578063c87b56dd1461023c578063e985e9c51461024f575f5ffd5b80636352211e146101c157806370a08231146101d45780638da5cb5b146101e757806395d89b411461020e575f5ffd5b80631249c58b116100ce5780631249c58b1461017c57806318160ddd1461018457806323b872dd1461019b57806342842e0e146101ae575f5ffd5b806301ffc9a7146100ff57806306fdde0314610127578063081812fc1461013c578063095ea7b314610167575b5f5ffd5b61011261010d36600461111c565b610262565b60405190151581526020015b60405180910390f35b61012f6102b3565b60405161011e9190611165565b61014f61014a366004611177565b610342565b6040516001600160a01b03909116815260200161011e565b61017a6101753660046111a9565b610369565b005b61017a610378565b61018d60065481565b60405190815260200161011e565b61017a6101a93660046111d1565b610418565b61017a6101bc3660046111d1565b6104a1565b61014f6101cf366004611177565b6104c0565b61018d6101e236600461120b565b6104ca565b61014f7f000000000000000000000000000000000000000000000000000000000000000081565b61012f61050f565b61017a610224366004611224565b61051e565b61017a610237366004611271565b610529565b61012f61024a366004611177565b610541565b61011261025d36600461134e565b6108a6565b5f6001600160e01b031982166380ac58cd60e01b148061029257506001600160e01b03198216635b5e139f60e01b145b806102ad57506301ffc9a760e01b6001600160e01b03198316145b92915050565b60605f80546102c19061137f565b80601f01602080910402602001604051908101604052809291908181526020018280546102ed9061137f565b80156103385780601f1061030f57610100808354040283529160200191610338565b820191905f5260205f20905b81548152906001019060200180831161031b57829003601f168201915b5050505050905090565b5f61034c826108d3565b505f828152600460205260409020546001600160a01b03166102ad565b61037482823361090b565b5050565b336001600160a01b037f000000000000000000000000000000000000000000000000000000000000000016146103f55760405162461bcd60e51b815260206004820152601760248201527f4f6e6c7920746865206f776e65722063616e206d696e7400000000000000000060448201526064015b60405180910390fd5b5f60065f8154610404906113cb565b918290555090506104153382610918565b50565b6001600160a01b03821661044157604051633250574960e11b81525f60048201526024016103ec565b5f61044d838333610979565b9050836001600160a01b0316816001600160a01b03161461049b576040516364283d7b60e01b81526001600160a01b03808616600483015260248201849052821660448201526064016103ec565b50505050565b6104bb83838360405180602001604052805f815250610529565b505050565b5f6102ad826108d3565b5f6001600160a01b0382166104f4576040516322718ad960e21b81525f60048201526024016103ec565b506001600160a01b03165f9081526003602052604090205490565b6060600180546102c19061137f565b610374338383610a6d565b610534848484610418565b61049b3385858585610b0b565b606061054c826108d3565b505f6040518061010001604052806040518060400160405280600781526020016608cc984c198cd960ca1b81525081526020016040518060400160405280600781526020016608cc198c984cd960ca1b8152508152602001604051806040016040528060078152602001661199b218b0983360c91b8152508152602001604051806040016040528060078152602001662330663364326160c81b8152508152602001604051806040016040528060078152602001662333643066326160c81b81525081526020016040518060400160405280600781526020016608cc598c584d1960ca1b8152508152602001604051806040016040528060078152602001661199b21999983360c91b81525081526020016040518060400160405280600781526020016608cc198cd90cd960ca1b81525081525090505f604051806101000160405280604051806040016040528060078152602001662365383739663960c81b8152508152602001604051806040016040528060078152602001660466670c4c8cc760cb1b8152508152602001604051806040016040528060078152602001662366623932336360c81b8152508152602001604051806040016040528060078152602001662333346433393960c81b8152508152602001604051806040016040528060078152602001662366623731383560c81b8152508152602001604051806040016040528060078152602001662361373862666160c81b8152508152602001604051806040016040528060078152602001662366616363313560c81b815250815260200160405180604001604052806007815260200166119932321a313360c91b81525081525090505f60086001866107c791906113e3565b6107d1919061140a565b90505f6107dd86610c33565b90505f8483600881106107f2576107f261141d565b60200201518484600881106108095761080961141d565b6020020151836108176102b3565b60405160200161082a9493929190611448565b60405160208183030381529060405290505f6108446102b3565b8361084e84610cc3565b60405160200161086093929190611734565b604051602081830303815290604052905061087a81610cc3565b60405160200161088a91906117f9565b6040516020818303038152906040529650505050505050919050565b6001600160a01b039182165f90815260056020908152604080832093909416825291909152205460ff1690565b5f818152600260205260408120546001600160a01b0316806102ad57604051637e27328960e01b8152600481018490526024016103ec565b6104bb8383836001610ce9565b6001600160a01b03821661094157604051633250574960e11b81525f60048201526024016103ec565b5f61094d83835f610979565b90506001600160a01b038116156104bb576040516339e3563760e11b81525f60048201526024016103ec565b5f828152600260205260408120546001600160a01b03908116908316156109a5576109a5818486610ded565b6001600160a01b038116156109df576109c05f855f5f610ce9565b6001600160a01b0381165f90815260036020526040902080545f190190555b6001600160a01b03851615610a0d576001600160a01b0385165f908152600360205260409020805460010190555b5f8481526002602052604080822080546001600160a01b0319166001600160a01b0389811691821790925591518793918516917fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef91a490505b9392505050565b6001600160a01b038216610a9f57604051630b61174360e31b81526001600160a01b03831660048201526024016103ec565b6001600160a01b038381165f81815260056020908152604080832094871680845294825291829020805460ff191686151590811790915591519182527f17307eab39ab6107e8899845ad3d59bd9653f200f220920489ca2b5937696c31910160405180910390a3505050565b6001600160a01b0383163b15610c2c57604051630a85bd0160e11b81526001600160a01b0384169063150b7a0290610b4d90889088908790879060040161182a565b6020604051808303815f875af1925050508015610b87575060408051601f3d908101601f19168201909252610b8491810190611866565b60015b610bee573d808015610bb4576040519150601f19603f3d011682016040523d82523d5f602084013e610bb9565b606091505b5080515f03610be657604051633250574960e11b81526001600160a01b03851660048201526024016103ec565b805181602001fd5b6001600160e01b03198116630a85bd0160e11b14610c2a57604051633250574960e11b81526001600160a01b03851660048201526024016103ec565b505b5050505050565b60605f610c3f83610e51565b60010190505f8167ffffffffffffffff811115610c5e57610c5e61125d565b6040519080825280601f01601f191660200182016040528015610c88576020820181803683370190505b5090508181016020015b5f19016f181899199a1a9b1b9c1cb0b131b232b360811b600a86061a8153600a8504945084610c9257509392505050565b60606102ad826040518060600160405280604081526020016118bf604091396001610f28565b8080610cfd57506001600160a01b03821615155b15610dbe575f610d0c846108d3565b90506001600160a01b03831615801590610d385750826001600160a01b0316816001600160a01b031614155b8015610d4b5750610d4981846108a6565b155b15610d745760405163a9fbf51f60e01b81526001600160a01b03841660048201526024016103ec565b8115610dbc5783856001600160a01b0316826001600160a01b03167f8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b92560405160405180910390a45b505b50505f90815260046020526040902080546001600160a01b0319166001600160a01b0392909216919091179055565b610df88383836110a3565b6104bb576001600160a01b038316610e2657604051637e27328960e01b8152600481018290526024016103ec565b60405163177e802f60e01b81526001600160a01b0383166004820152602481018290526044016103ec565b5f8072184f03e93ff9f4daa797ed6e38ed64bf6a1f0160401b8310610e8f5772184f03e93ff9f4daa797ed6e38ed64bf6a1f0160401b830492506040015b6d04ee2d6d415b85acef81000000008310610ebb576d04ee2d6d415b85acef8100000000830492506020015b662386f26fc100008310610ed957662386f26fc10000830492506010015b6305f5e1008310610ef1576305f5e100830492506008015b6127108310610f0557612710830492506004015b60648310610f17576064830492506002015b600a83106102ad5760010192915050565b606083515f03610f46575060408051602081019091525f8152610a66565b5f82610f7657600385516004610f5c9190611881565b610f67906002611898565b610f7191906118ab565b610f9b565b600385516002610f869190611898565b610f9091906118ab565b610f9b906004611881565b90505f8167ffffffffffffffff811115610fb757610fb761125d565b6040519080825280601f01601f191660200182016040528015610fe1576020820181803683370190505b509050600185016020820187885189016020810180515f82525b82841015611056576003840193508351603f8160121c168701518653600186019550603f81600c1c168701518653600186019550603f8160061c168701518653600186019550603f8116870151865350600185019450610ffb565b9052505085156110975760038851066001811461107a576002811461108d57611095565b603d6001830353603d6002830353611095565b603d60018303535b505b50909695505050505050565b5f6001600160a01b038316158015906110ff5750826001600160a01b0316846001600160a01b031614806110dc57506110dc84846108a6565b806110ff57505f828152600460205260409020546001600160a01b038481169116145b949350505050565b6001600160e01b031981168114610415575f5ffd5b5f6020828403121561112c575f5ffd5b8135610a6681611107565b5f81518084528060208401602086015e5f602082860101526020601f19601f83011685010191505092915050565b602081525f610a666020830184611137565b5f60208284031215611187575f5ffd5b5035919050565b80356001600160a01b03811681146111a4575f5ffd5b919050565b5f5f604083850312156111ba575f5ffd5b6111c38361118e565b946020939093013593505050565b5f5f5f606084860312156111e3575f5ffd5b6111ec8461118e565b92506111fa6020850161118e565b929592945050506040919091013590565b5f6020828403121561121b575f5ffd5b610a668261118e565b5f5f60408385031215611235575f5ffd5b61123e8361118e565b915060208301358015158114611252575f5ffd5b809150509250929050565b634e487b7160e01b5f52604160045260245ffd5b5f5f5f5f60808587031215611284575f5ffd5b61128d8561118e565b935061129b6020860161118e565b925060408501359150606085013567ffffffffffffffff8111156112bd575f5ffd5b8501601f810187136112cd575f5ffd5b803567ffffffffffffffff8111156112e7576112e761125d565b604051601f8201601f19908116603f0116810167ffffffffffffffff811182821017156113165761131661125d565b60405281815282820160200189101561132d575f5ffd5b816020840160208301375f6020838301015280935050505092959194509250565b5f5f6040838503121561135f575f5ffd5b6113688361118e565b91506113766020840161118e565b90509250929050565b600181811c9082168061139357607f821691505b6020821081036113b157634e487b7160e01b5f52602260045260245ffd5b50919050565b634e487b7160e01b5f52601160045260245ffd5b5f600182016113dc576113dc6113b7565b5060010190565b818103818111156102ad576102ad6113b7565b634e487b7160e01b5f52601260045260245ffd5b5f82611418576114186113f6565b500690565b634e487b7160e01b5f52603260045260245ffd5b5f81518060208401855e5f93019283525090919050565b7f3c73766720786d6c6e733d27687474703a2f2f7777772e77332e6f72672f323081527f30302f737667272076696577426f783d273020302034303020343030273e000060208201527f3c726563742077696474683d2734303027206865696768743d27343030272072603e8201526c783d273332272066696c6c3d2760981b605e8201525f6114db606b830187611431565b6213979f60e91b81527f3c636972636c652063783d27323030272063793d273137302720723d27313130600382015267272066696c6c3d2760c01b6023820152611528602b820187611431565b6213979f60e91b815290507f3c7465787420783d273230302720793d273139382720666f6e742d66616d696c60038201527f793d2773616e732d73657269662720666f6e742d73697a653d2737322720666f60238201527f6e742d7765696768743d273730302720746578742d616e63686f723d276d6964604382015274646c65272066696c6c3d2723306230373232273e2360581b60638201526115d06078820186611431565b661e17ba32bc3a1f60c91b815290507f3c7465787420783d273230302720793d273334302720666f6e742d66616d696c60078201527f793d2773616e732d73657269662720666f6e742d73697a653d2732382720666f60278201527f6e742d7765696768743d273730302720746578742d616e63686f723d276d696460478201527332363293903334b6361e9391b33333333333139f60611b606782015261167b607b820185611431565b661e17ba32bc3a1f60c91b81527f3c7465787420783d273230302720793d273337302720666f6e742d66616d696c60078201527f793d2773616e732d73657269662720666f6e742d73697a653d2731352720746560278201527f78742d616e63686f723d276d6964646c65272066696c6c3d2723623461626530604782015273139f28a6a9902a32b9ba3732ba1e17ba32bc3a1f60611b6067820152651e17b9bb339f60d11b607b820152608101979650505050505050565b683d913730b6b2911d1160b91b81525f6117516009830186611431565b61202360f01b81526117666002820186611431565b90507f222c226465736372697074696f6e223a224465706c6f7965642077697468205181527f4d53204461696c79206f6e20514d5320546573746e65742e222c22696d61676560208201527f223a22646174613a696d6167652f7376672b786d6c3b6261736536342c00000060408201526117e4605d820185611431565b61227d60f01b81526002019695505050505050565b7f646174613a6170706c69636174696f6e2f6a736f6e3b6261736536342c00000081525f610a66601d830184611431565b6001600160a01b03858116825284166020820152604081018390526080606082018190525f9061185c90830184611137565b9695505050505050565b5f60208284031215611876575f5ffd5b8151610a6681611107565b80820281158282048414176102ad576102ad6113b7565b808201808211156102ad576102ad6113b7565b5f826118b9576118b96113f6565b50049056fe4142434445464748494a4b4c4d4e4f505152535455565758595a6162636465666768696a6b6c6d6e6f707172737475767778797a303132333435363738392b2fa2646970667358221220e1ac0a10063466e976662ce4066fefac11b38d4ecc88af7a06754bb7126cedb764736f6c634300081c0033";
+  var COLLECTION_MINT_ABI = ["function mint()"];
+
+  /* Same thresholds, names, rarities, colours and decoration as the contract (generated from one spec) */
+  var TIERS = [{"name":"Ember","rarity":"Common","label":"COMMON","t":15,"a":"#fdba74","b":"#f97316","decor":"<circle cx='200' cy='156' r='112' fill='none' stroke='url(#g)' stroke-width='6' opacity='0.5'/>"},{"name":"Comet","rarity":"Rare","label":"RARE","t":30,"a":"#67e8f9","b":"#3b82f6","decor":"<rect x='8' y='8' width='384' height='384' rx='26' fill='none' stroke='url(#g)' stroke-width='3' opacity='0.6'/><circle cx='200' cy='156' r='112' fill='none' stroke='url(#g)' stroke-width='6' opacity='0.55'/><circle cx='200' cy='156' r='128' fill='none' stroke='url(#g)' stroke-width='3' opacity='0.35'/>"},{"name":"Nova","rarity":"Epic","label":"EPIC","t":60,"a":"#f0abfc","b":"#8b5cf6","decor":"<rect x='8' y='8' width='384' height='384' rx='26' fill='none' stroke='url(#g)' stroke-width='4' opacity='0.75'/><circle cx='200' cy='156' r='112' fill='none' stroke='url(#g)' stroke-width='6' opacity='0.6'/><circle cx='200' cy='156' r='128' fill='none' stroke='url(#g)' stroke-width='3' opacity='0.45'/><circle cx='200' cy='156' r='140' fill='none' stroke='url(#g)' stroke-width='2' opacity='0.3'/><circle cx='56' cy='58' r='5' fill='url(#g)'/><circle cx='344' cy='84' r='4' fill='url(#g)'/><circle cx='70' cy='280' r='4' fill='url(#g)'/><circle cx='334' cy='262' r='5' fill='url(#g)'/>"},{"name":"Singularity","rarity":"Legendary","label":"LEGENDARY","t":100,"a":"#fff7c2","b":"#f59e0b","decor":"<rect x='8' y='8' width='384' height='384' rx='26' fill='none' stroke='url(#g)' stroke-width='6' opacity='0.9'/><circle cx='200' cy='156' r='134' fill='none' stroke='url(#g)' stroke-width='12' stroke-dasharray='4 22' opacity='0.85'/><circle cx='200' cy='156' r='112' fill='none' stroke='url(#g)' stroke-width='6' opacity='0.7'/><circle cx='200' cy='156' r='128' fill='none' stroke='url(#g)' stroke-width='3' opacity='0.5'/><circle cx='52' cy='54' r='6' fill='url(#g)'/><circle cx='348' cy='70' r='5' fill='url(#g)'/><circle cx='34' cy='156' r='4' fill='url(#g)'/><circle cx='366' cy='190' r='4' fill='url(#g)'/><circle cx='64' cy='290' r='5' fill='url(#g)'/><circle cx='338' cy='276' r='6' fill='url(#g)'/>"}];
 
   var $ = function (id) { return document.getElementById(id); };
   var els = {
     block: $("block"), dot: $("dot"), connect: $("connect"), addr: $("addr"),
     gm: $("btn-gm"), gn: $("btn-gn"), dp: $("btn-dp"),
     noteGm: $("note-gm"), noteGn: $("note-gn"), noteDp: $("note-dp"),
-    status: $("status"), log: $("log"), empty: $("empty"), link: $("contract-link")
+    status: $("status"), log: $("log"), empty: $("empty"), link: $("contract-link"),
+    chips: $("chips"), stGm: $("st-gm"), stGn: $("st-gn"), stDays: $("st-days"), stStreak: $("st-streak"), stBest: $("st-best"), stRank: $("st-rank"), stRankSub: $("st-rank-sub"), streakNote: $("streak-note"),
+    badges: $("badges"), collection: $("collection-link"),
+    nftName: $("nft-name"), nftSymbol: $("nft-symbol"), nft: $("btn-nft"), nftMint: $("btn-nft-mint"), noteNft: $("note-nft"),
+    tabHome: $("tab-home"), tabNfts: $("tab-nfts"), tabBoard: $("tab-board"), panelHome: $("panel-home"), panelNfts: $("panel-nfts"), panelBoard: $("panel-board"),
+    boardBody: $("board-body"), boardMsg: $("board-msg"), boardCount: $("board-count"), boardRefresh: $("board-refresh")
   };
 
   var ethers = window.ethers;
   if (!ethers) {
-    els.status.className = "status err";
+    els.status.hidden = false;
+    els.status.className = "toast err";
     els.status.textContent = "Could not load the ethers library. Check your internet connection and reload.";
     return;
   }
 
-  var dailyAddress = ethers.getAddress(CFG.daily);
-  els.link.href = CFG.explorer + "/address/" + dailyAddress;
-  els.link.textContent = dailyAddress.slice(0, 8) + "…" + dailyAddress.slice(-6);
+  var contractSet = CFG.contract.toLowerCase() !== ZERO;
+  var contractAddr = ethers.getAddress(CFG.contract);
+  if (contractSet) {
+    els.link.href = CFG.explorer + "/address/" + contractAddr;
+    els.link.textContent = contractAddr.slice(0, 8) + "…" + contractAddr.slice(-6);
+    els.collection.href = CFG.explorer + "/token/" + contractAddr;
+  } else {
+    els.link.textContent = "not set yet";
+    els.collection.removeAttribute("href");
+  }
 
   var reader = new ethers.JsonRpcProvider(CFG.rpc, CFG.chainId, { staticNetwork: true });
+  var walletProv = null;
   var account = null;
   var busy = false;
-  var walletProv = null;
+  var mine = null;   /* this wallet's on-chain status */
+  var board = [];    /* leaderboard rows */
+  var toastTimer = null;
+  var lastCollection = null; /* address of the NFT collection this wallet deployed last */
 
   /* Try the wallet's own connection first, then the public RPC. Some browsers
-     block direct calls to the public RPC (CORS), the wallet never has that problem. */
-  function tryReaders(fn) {
+     block direct calls to the public RPC (CORS); the wallet never has that problem. */
+  async function tryReaders(fn) {
     var list = walletProv ? [walletProv, reader] : [reader];
-    var p = Promise.reject(new Error("no provider"));
-    list.forEach(function (r) { p = p.catch(function () { return fn(r); }); });
-    return p;
+    var last;
+    for (var i = 0; i < list.length; i++) {
+      try { return await fn(list[i]); } catch (e) { last = e; }
+    }
+    throw last;
   }
 
   function setStatus(msg, kind) {
-    els.status.textContent = msg || "";
-    els.status.className = "status" + (kind ? " " + kind : "");
+    clearTimeout(toastTimer);
+    if (!msg) { els.status.hidden = true; return; }
+    els.status.hidden = false;
+    els.status.className = "toast" + (kind ? " " + kind : "");
+    els.status.textContent = msg;
+    if (kind === "ok") { toastTimer = setTimeout(function () { els.status.hidden = true; }, 9000); }
   }
+  els.status.addEventListener("click", function () { els.status.hidden = true; });
 
   function short(a) { return a.slice(0, 6) + "…" + a.slice(-4); }
 
@@ -263,7 +428,11 @@
     var text = (e.reason || e.shortMessage || e.message || "").toString();
     if (/Already GM today/i.test(text)) return "You already sent GM today (UTC). Come back tomorrow.";
     if (/Already GN today/i.test(text)) return "You already sent GN today (UTC). Come back tomorrow.";
-    if (/insufficient funds/i.test(text)) return "Not enough test QMS for gas. Get some from the faucet.";
+    if (/Not enough days yet/i.test(text)) return "You have not reached this milestone yet.";
+    if (/Already minted/i.test(text)) return "You already minted this badge.";
+    if (/Only the owner can mint/i.test(text)) return "Only the wallet that deployed this collection can mint from it.";
+    if (/insufficient funds/i.test(text)) return "Not enough test QMS for gas. Use the Get test QMS button.";
+    if (/missing revert data/i.test(text)) return "The transaction would fail. Check that your wallet is on QMS Testnet and that this site’s contract address is set.";
     return text.length > 180 ? text.slice(0, 180) + "…" : (text || "Something went wrong.");
   }
 
@@ -283,10 +452,11 @@
     return left;
   }
 
-  /* Live block counter */
+  /* ------------------------------------------------------------ block counter */
   var lastBlock = null;
-  function pollBlock() {
-    tryReaders(function (r) { return r.getBlockNumber(); }).then(function (n) {
+  async function pollBlock() {
+    try {
+      var n = await tryReaders(function (r) { return r.getBlockNumber(); });
       els.block.textContent = "QMS Testnet · block " + n.toLocaleString("en-US");
       if (lastBlock !== null && n !== lastBlock) {
         els.dot.classList.remove("tick");
@@ -294,187 +464,492 @@
         els.dot.classList.add("tick");
       }
       lastBlock = n;
-    }).catch(function () {
+    } catch (e) {
       els.block.textContent = "QMS Testnet unreachable. Check status.testnet.qms.finance";
-    });
+    }
   }
   pollBlock();
   setInterval(pollBlock, 8000);
 
-  /* Wallet */
+  /* ------------------------------------------------------------------ badges */
+  function badgeArt(i) {
+    var t = TIERS[i];
+    var svg = "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'>" +
+      "<defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='" + t.a + "'/><stop offset='1' stop-color='" + t.b + "'/></linearGradient></defs>" +
+      "<rect width='400' height='400' rx='32' fill='#0b0722'/>" +
+      t.decor +
+      "<circle cx='200' cy='156' r='96' fill='url(#g)'/>" +
+      "<text x='200' y='186' font-family='sans-serif' font-size='84' font-weight='700' text-anchor='middle' fill='#0b0722'>" + t.t + "</text>" +
+      "<text x='200' y='322' font-family='sans-serif' font-size='34' font-weight='700' text-anchor='middle' fill='#ffffff'>" + t.name + "</text>" +
+      "<text x='200' y='348' font-family='sans-serif' font-size='16' font-weight='700' text-anchor='middle' letter-spacing='3' fill='" + t.a + "'>" + t.label + "</text>" +
+      "<text x='200' y='374' font-family='sans-serif' font-size='15' text-anchor='middle' fill='#b4abe0'>QMS Daily - " + t.t + " days</text>" +
+      "</svg>";
+    return { svg: svg, uri: "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg) };
+  }
+
+  var badgeEls = [];
+  function buildBadges() {
+    TIERS.forEach(function (t, i) {
+      var card = document.createElement("div");
+      card.className = "badge locked r" + i;
+      var img = document.createElement("img");
+      img.src = badgeArt(i).uri;
+      img.alt = t.rarity + " badge " + t.name + " for " + t.t + " active days";
+      img.loading = "lazy";
+      var rar = document.createElement("span");
+      rar.className = "rar";
+      rar.textContent = t.label;
+      rar.style.color = t.a;
+      var h = document.createElement("h4");
+      h.textContent = t.name;
+      var meta = document.createElement("div");
+      meta.className = "meta";
+      var bar = document.createElement("div");
+      bar.className = "bar";
+      var fill = document.createElement("i");
+      bar.appendChild(fill);
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.addEventListener("click", function () { mintBadge(i); });
+      card.appendChild(img); card.appendChild(rar); card.appendChild(h); card.appendChild(meta); card.appendChild(bar); card.appendChild(btn);
+      els.badges.appendChild(card);
+      badgeEls.push({ card: card, meta: meta, fill: fill, btn: btn });
+    });
+  }
+  buildBadges();
+
+  /* ----------------------------------------------------------------- rendering */
+  function myDays() { return mine ? mine.days : 0; }
+
+  function renderActions() {
+    var connected = !!account;
+    var ready = connected && contractSet && !busy;
+    els.gm.disabled = !ready || !!(mine && mine.gmDone);
+    els.gn.disabled = !ready || !!(mine && mine.gnDone);
+    els.dp.disabled = !connected || busy;
+    els.nft.disabled = !connected || busy;
+    els.nftMint.hidden = !lastCollection;
+    els.nftMint.disabled = !connected || busy;
+    els.noteGm.textContent = mine && mine.gmDone ? "Done for today. Back after 00:00 UTC." : "";
+    els.noteGn.textContent = mine && mine.gnDone ? "Done for today. Back after 00:00 UTC." : "";
+    if (connected && !contractSet) { els.noteGm.textContent = "Contract address is not set on this site yet."; }
+
+    var days = myDays();
+    TIERS.forEach(function (t, i) {
+      var b = badgeEls[i];
+      var minted = !!(mine && (mine.mask >> i) & 1);
+      var reached = days >= t.t;
+      b.card.classList.toggle("locked", !reached && !minted);
+      b.fill.style.width = Math.min(100, Math.round(days / t.t * 100)) + "%";
+      b.meta.textContent = Math.min(days, t.t) + " / " + t.t + " days";
+      if (minted) { b.btn.textContent = "Minted"; b.btn.disabled = true; }
+      else if (!connected) { b.btn.textContent = "Connect to mint"; b.btn.disabled = true; }
+      else if (!reached) { b.btn.textContent = (t.t - days) + (t.t - days === 1 ? " more day to go" : " more days to go"); b.btn.disabled = true; }
+      else { b.btn.textContent = "Mint badge"; b.btn.disabled = !contractSet || busy; }
+    });
+    renderStats();
+  }
+
+  function renderStats() {
+    if (!account) { els.chips.hidden = true; els.streakNote.hidden = true; return; }
+    els.chips.hidden = false;
+    els.stGm.textContent = mine ? mine.gm : "0";
+    els.stGn.textContent = mine ? mine.gn : "0";
+    els.stDays.textContent = String(myDays());
+    els.stStreak.textContent = mine ? mine.streak : "0";
+    els.stBest.textContent = mine ? mine.best : "0";
+    var rank = myRank();
+    if (rank > 0) { els.stRank.textContent = "#" + rank; els.stRankSub.textContent = "of " + board.length + " on the leaderboard"; }
+    else { els.stRank.textContent = "-"; els.stRankSub.textContent = "Send a GM to join the leaderboard"; }
+    renderStreakNote();
+  }
+
+  /* Tell the user, in plain words, what their streak is doing */
+  function renderStreakNote() {
+    var n = els.streakNote;
+    if (!mine || !contractSet) { n.hidden = true; return; }
+    n.className = "streaknote";
+    if (mine.days === 0) { n.hidden = false; n.textContent = "Send your first GM or GN to start a streak."; return; }
+    if (mine.streak === 0) {
+      n.hidden = false;
+      n.classList.add("lost");
+      n.textContent = "You missed a day, so your streak reset. Your " + mine.days + " total days are safe (best streak: " + mine.best + "). Check in today to start a new streak.";
+    } else if (mine.activeToday) {
+      n.hidden = false;
+      n.classList.add("good");
+      n.textContent = "You are on a " + mine.streak + "-day streak and checked in today. Come back tomorrow (UTC) to keep it going.";
+    } else {
+      n.hidden = false;
+      n.classList.add("warn");
+      n.textContent = "Your " + mine.streak + "-day streak ends if you skip today. Send a GM or GN before 00:00 UTC.";
+    }
+  }
+
+  function sortedBoard() {
+    return board.map(function (r, i) { return { a: r.a, g: r.g, n: r.n, d: r.d, s: r.s, i: i }; })
+      .sort(function (x, y) { return (y.d - x.d) || (y.s - x.s) || ((y.g + y.n) - (x.g + x.n)) || (x.i - y.i); });
+  }
+  function myRank() {
+    if (!account) return 0;
+    var s = sortedBoard();
+    for (var i = 0; i < s.length; i++) { if (s[i].a.toLowerCase() === account.toLowerCase()) return i + 1; }
+    return 0;
+  }
+
+  function cell(text, cls) {
+    var td = document.createElement("td");
+    if (cls) td.className = cls;
+    td.textContent = text;
+    return td;
+  }
+  function boardRow(r, rank) {
+    var tr = document.createElement("tr");
+    if (rank <= 3) tr.classList.add("top" + rank);
+    if (account && r.a.toLowerCase() === account.toLowerCase()) tr.classList.add("me");
+    tr.appendChild(cell(String(rank), "rank"));
+    var tdW = document.createElement("td");
+    var a = document.createElement("a");
+    a.href = CFG.explorer + "/address/" + r.a;
+    a.target = "_blank";
+    a.rel = "noopener";
+    a.textContent = short(r.a);
+    tdW.appendChild(a);
+    tr.appendChild(tdW);
+    tr.appendChild(cell(String(r.d), "num"));
+    tr.appendChild(cell(String(r.s), "num"));
+    tr.appendChild(cell(String(r.g), "num"));
+    tr.appendChild(cell(String(r.n), "num"));
+    return tr;
+  }
+
+  function renderBoard() {
+    var s = sortedBoard();
+    els.boardBody.textContent = "";
+    if (!s.length) {
+      els.boardMsg.style.display = "block";
+      els.boardMsg.textContent = "Nobody on the board yet. Send the first GM.";
+      els.boardCount.textContent = "0 participants";
+      renderStats();
+      return;
+    }
+    els.boardMsg.style.display = "none";
+    var top = s.slice(0, 20);
+    top.forEach(function (r, i) { els.boardBody.appendChild(boardRow(r, i + 1)); });
+    var rank = myRank();
+    if (rank > 20) { els.boardBody.appendChild(boardRow(s[rank - 1], rank)); }
+    els.boardCount.textContent = s.length + (s.length === 1 ? " participant" : " participants");
+    renderStats();
+  }
+
+  /* ----------------------------------------------------------------- reading */
+  async function loadMine() {
+    if (!account || !contractSet) return;
+    try {
+      var res = await tryReaders(async function (rd) {
+        var c = new ethers.Contract(contractAddr, ABI, rd);
+        var out = await Promise.all([c.statusOf(account), rd.getBlock("latest")]);
+        return out;
+      });
+      var s = res[0], day = Math.floor(res[1].timestamp / 86400);
+      mine = {
+        gm: Number(s.gms), gn: Number(s.gns), days: Number(s.activeDays),
+        streak: Number(s.streak), best: Number(s.best),
+        gmDone: Number(s.gmDay) === day, gnDone: Number(s.gnDay) === day,
+        activeToday: Number(s.lastActiveDay) === day,
+        mask: Number(s.mask)
+      };
+    } catch (e) { if (window.console) console.error(e); }
+    renderActions();
+  }
+
+  async function loadBoard() {
+    if (!contractSet) {
+      els.boardMsg.style.display = "block";
+      els.boardMsg.textContent = "The leaderboard appears once the contract address is set on this site.";
+      return;
+    }
+    try {
+      var rows = await tryReaders(async function (rd) {
+        var c = new ethers.Contract(contractAddr, ABI, rd);
+        var n = Number(await c.userCount());
+        var out = [];
+        for (var off = 0; off < Math.min(n, 2000); off += 200) {
+          var p = await c.page(off, 200);
+          for (var i = 0; i < p.length; i++) {
+            out.push({ a: p[i].user, g: Number(p[i].gm), n: Number(p[i].gn), d: Number(p[i].activeDays), s: Number(p[i].streak) });
+          }
+        }
+        return out;
+      });
+      board = rows;
+      renderBoard();
+    } catch (e) {
+      if (window.console) console.error(e);
+      els.boardMsg.style.display = "block";
+      els.boardMsg.textContent = account
+        ? "Could not load the leaderboard right now. Try Refresh in a moment."
+        : "Could not load the leaderboard. Connect your wallet and try Refresh.";
+    }
+  }
+
+  async function refreshAll() { await Promise.all([loadMine(), loadBoard()]); renderActions(); }
+
+  els.boardRefresh.addEventListener("click", function () { loadBoard(); loadMine(); });
+  loadBoard();
+  setInterval(function () { loadBoard(); loadMine(); }, 60000);
+
+  /* ------------------------------------------------------------------ wallet */
   function getInjected() { return window.ethereum || null; }
 
-  function ensureChain(eth) {
-    return eth.request({ method: "wallet_switchEthereumChain", params: [{ chainId: CFG.chainHex }] })
-      .catch(function (e) {
-        var msg = (e && e.message) || "";
-        if (e && (e.code === 4902 || e.code === -32603 || /unrecognized|not added|add/i.test(msg))) {
-          return eth.request({
-            method: "wallet_addEthereumChain",
-            params: [{
-              chainId: CFG.chainHex,
-              chainName: "QMS Testnet",
-              nativeCurrency: { name: "QMS", symbol: "QMS", decimals: 18 },
-              rpcUrls: [CFG.rpc],
-              blockExplorerUrls: [CFG.explorer]
-            }]
-          });
+  async function ensureChain(eth) {
+    try {
+      await eth.request({ method: "wallet_switchEthereumChain", params: [{ chainId: CFG.chainHex }] });
+    } catch (e) {
+      var msg = (e && e.message) || "";
+      if (e && (e.code === 4902 || e.code === -32603 || /unrecognized|not added|add/i.test(msg))) {
+        await eth.request({
+          method: "wallet_addEthereumChain",
+          params: [{
+            chainId: CFG.chainHex,
+            chainName: "QMS Testnet",
+            nativeCurrency: { name: "QMS", symbol: "QMS", decimals: 18 },
+            rpcUrls: [CFG.rpc],
+            blockExplorerUrls: [CFG.explorer]
+          }]
+        });
+      } else { throw e; }
+    }
+  }
+
+  function collectionKey() { return "qmsDaily.collection." + (account || "").toLowerCase(); }
+  function saveCollection(addr) {
+    lastCollection = addr;
+    try { localStorage.setItem(collectionKey(), addr); } catch (e) { /* storage may be blocked */ }
+  }
+  function restoreCollection() {
+    try {
+      var v = localStorage.getItem(collectionKey());
+      if (v && ethers.isAddress(v)) { lastCollection = ethers.getAddress(v); showCollectionNote(lastCollection); }
+    } catch (e) { /* storage may be blocked */ }
+  }
+  function showCollectionNote(address) {
+    els.noteNft.textContent = "";
+    var a = document.createElement("a");
+    a.href = CFG.explorer + "/address/" + address;
+    a.target = "_blank";
+    a.rel = "noopener";
+    a.style.color = "inherit";
+    a.textContent = "Your collection: " + short(address);
+    els.noteNft.appendChild(a);
+  }
+
+  function afterConnect(eth) {
+    restoreCollection();
+    walletProv = new ethers.BrowserProvider(eth);
+    els.addr.textContent = short(account);
+    els.connect.textContent = "Connected";
+    els.connect.disabled = true;
+    renderActions();
+    refreshAll();
+    if (contractSet) {
+      tryReaders(function (r) { return r.getCode(contractAddr); }).then(function (code) {
+        if (code === "0x") {
+          setStatus("No contract found at " + short(contractAddr) + " on QMS Testnet. Check the address set on this site.", "err");
         }
-        throw e;
-      });
+      }).catch(function () {});
+    }
   }
 
-  function getSigner() {
-    var eth = getInjected();
-    var bp = new ethers.BrowserProvider(eth);
-    return bp.getSigner();
-  }
-
-  function enableButtons(on) {
-    els.gm.disabled = !on;
-    els.gn.disabled = !on;
-    els.dp.disabled = !on;
-  }
-
-  function connect() {
+  async function connect() {
     var eth = getInjected();
     if (!eth) {
       setStatus("No wallet found. Install MetaMask or Rabby, or open this page inside your wallet’s browser.", "err");
       return;
     }
-    setStatus("Check your wallet to connect…");
-    eth.request({ method: "eth_requestAccounts" })
-      .then(function (accts) {
-        account = ethers.getAddress(accts[0]);
-        return ensureChain(eth);
-      })
-      .then(function () {
-        walletProv = new ethers.BrowserProvider(eth);
-        els.addr.textContent = short(account);
-        els.connect.textContent = "Connected";
-        els.connect.disabled = true;
-        enableButtons(true);
-        setStatus("Wallet connected on QMS Testnet.", "ok");
-        refreshDaily();
-        tryReaders(function (r) { return r.getCode(dailyAddress); }).then(function (code) {
-          if (code === "0x") {
-            setStatus("No contract found at " + short(dailyAddress) + " on QMS Testnet. GM and GN will fail until the address in this page is fixed.", "err");
-          }
-        }).catch(function () {});
-      })
-      .catch(function (e) { setStatus(friendlyError(e), "err"); });
+    try {
+      setStatus("Check your wallet to connect…");
+      var accts = await eth.request({ method: "eth_requestAccounts" });
+      account = ethers.getAddress(accts[0]);
+      await ensureChain(eth);
+      afterConnect(eth);
+      setStatus("Wallet connected on QMS Testnet.", "ok");
+    } catch (e) { setStatus(friendlyError(e), "err"); }
   }
 
-  /* Read today's state */
-  function refreshDaily() {
-    if (!account) return;
-    tryReaders(function (rd) {
-      var c = new ethers.Contract(dailyAddress, DAILY_ABI, rd);
-      return Promise.all([rd.getBlock("latest"), c.lastGM(account), c.lastGN(account)]);
-    })
-      .then(function (r) {
-        var day = BigInt(Math.floor(r[0].timestamp / 86400));
-        var gmDone = r[1] === day;
-        var gnDone = r[2] === day;
-        els.gm.disabled = gmDone || busy;
-        els.gn.disabled = gnDone || busy;
-        els.noteGm.textContent = gmDone ? "Done for today. See you tomorrow (UTC)." : "";
-        els.noteGn.textContent = gnDone ? "Done for today. See you tomorrow (UTC)." : "";
-      })
-      .catch(function () { /* keep buttons usable; the contract will enforce the rule */ });
-  }
+  /* Reconnect silently when the wallet is already authorised and on QMS Testnet */
+  (async function () {
+    var eth = getInjected();
+    if (!eth) return;
+    try {
+      var accts = await eth.request({ method: "eth_accounts" });
+      var cid = await eth.request({ method: "eth_chainId" });
+      if (accts && accts.length && parseInt(cid, 16) === CFG.chainId) {
+        account = ethers.getAddress(accts[0]);
+        afterConnect(eth);
+      }
+    } catch (e) { /* stay on the Connect button */ }
+  })();
 
   /* Fees: leave headroom above the base fee, as the QMS docs recommend */
-  function feeOverrides() {
-    return tryReaders(function (r) {
-      return r.getBlock("latest").then(function (b) {
+  async function feeOverrides() {
+    try {
+      return await tryReaders(async function (r) {
+        var b = await r.getBlock("latest");
         var base = b.baseFeePerGas || 0n;
-        return r.send("eth_maxPriorityFeePerGas", []).then(function (t) {
-          return BigInt(t);
-        }).catch(function () { return 1000000000n; }).then(function (tip) {
-          return { maxFeePerGas: base * 2n + tip, maxPriorityFeePerGas: tip };
-        });
+        var tip;
+        try { tip = BigInt(await r.send("eth_maxPriorityFeePerGas", [])); } catch (e) { tip = 1000000000n; }
+        return { maxFeePerGas: base * 2n + tip, maxPriorityFeePerGas: tip };
       });
-    }).catch(function () { return {}; });
+    } catch (e) { return {}; }
   }
 
-  function lock(on) {
-    busy = on;
-    if (on) { enableButtons(false); } else { enableButtons(true); refreshDaily(); }
-  }
+  function setBusy(on) { busy = on; renderActions(); }
 
-  function track(tx, label) {
-    var span = addLog(label, tx.hash, "pending");
-    setStatus(label + " sent. Waiting for the next block (about 10 seconds)…");
-    return tx.wait().then(function (rc) {
-      if (rc && rc.status === 1) {
-        span.textContent = label + " · confirmed";
-        return rc;
+  /* One path for every transaction: sign, wait, log, refresh */
+  async function runTx(label, send) {
+    if (busy) return null;
+    setBusy(true);
+    var rc = null;
+    try {
+      setStatus("Confirm " + label + " in your wallet…");
+      var signer = await walletProv.getSigner();
+      await ensureChain(getInjected());
+      var fees = await feeOverrides();
+      var tx = await send(signer, fees);
+      var row = addLog(label, tx.hash, "pending");
+      setStatus(label + " sent. Waiting for the next block (about 10 seconds)…");
+      rc = await tx.wait();
+      if (!rc || rc.status !== 1) {
+        row.textContent = label + " · failed";
+        rc = null;
+        throw new Error("The transaction failed on-chain.");
       }
-      span.textContent = label + " · failed";
-      throw new Error("The transaction failed on-chain.");
-    });
+      row.textContent = label + " · confirmed";
+      setStatus(label + " confirmed on QMS Testnet.", "ok");
+    } catch (e) {
+      rc = null;
+      setStatus(friendlyError(e), "err");
+    }
+    busy = false;
+    if (rc) {
+      await refreshAll();
+      setTimeout(refreshAll, 3000); /* RPC nodes can lag a block behind */
+    } else { renderActions(); }
+    return rc;
   }
 
   function sendDaily(fn, label) {
-    if (busy) return;
-    lock(true);
-    setStatus("Confirm " + label + " in your wallet…");
-    var signer;
-    getSigner()
-      .then(function (s) { signer = s; return ensureChain(getInjected()); })
-      .then(function () { return feeOverrides(); })
-      .then(function (fees) {
-        var c = new ethers.Contract(dailyAddress, DAILY_ABI, signer);
-        return c[fn](fees);
-      })
-      .then(function (tx) { return track(tx, label); })
-      .then(function () { setStatus(label + " confirmed on QMS Testnet.", "ok"); })
-      .catch(function (e) { setStatus(friendlyError(e), "err"); })
-      .then(function () { lock(false); });
+    return runTx(label, function (signer, fees) {
+      return new ethers.Contract(contractAddr, ABI, signer)[fn](fees);
+    });
   }
 
-  function deployContract() {
-    if (busy) return;
-    lock(true);
-    setStatus("Confirm the deployment in your wallet…");
-    var signer;
-    getSigner()
-      .then(function (s) { signer = s; return ensureChain(getInjected()); })
-      .then(function () { return feeOverrides(); })
-      .then(function (fees) {
-        var factory = new ethers.ContractFactory(BUILD_ABI, BUILD_BYTECODE, signer);
-        return factory.deploy(fees);
-      })
-      .then(function (contract) {
-        var tx = contract.deploymentTransaction();
-        return track(tx, "Deploy").then(function () { return contract.getAddress(); });
-      })
-      .then(function (address) {
-        els.noteDp.innerHTML = "";
-        var a = document.createElement("a");
-        a.href = CFG.explorer + "/address/" + address;
-        a.target = "_blank";
-        a.rel = "noopener";
-        a.style.color = "inherit";
-        a.textContent = "Your contract: " + short(address);
-        els.noteDp.appendChild(a);
-        setStatus("Contract deployed on QMS Testnet.", "ok");
-      })
-      .catch(function (e) { setStatus(friendlyError(e), "err"); })
-      .then(function () { lock(false); });
+  async function mintBadge(i) {
+    var t = TIERS[i];
+    var rc = await runTx("Mint " + t.name + " badge", function (signer, fees) {
+      return new ethers.Contract(contractAddr, ABI, signer).mint(i, fees);
+    });
+    if (!rc) return;
+    var iface = new ethers.Interface(ABI);
+    for (var k = 0; k < rc.logs.length; k++) {
+      try {
+        var p = iface.parseLog(rc.logs[k]);
+        if (p && p.name === "BadgeMinted") {
+          setStatus(t.rarity + " badge " + t.name + " minted as NFT #" + p.args[2].toString() + ". You can see it in the explorer collection (link on the NFTs tab).", "ok");
+          break;
+        }
+      } catch (e) { /* not our event */ }
+    }
   }
+
+  async function deployContract() {
+    var deployed = null;
+    var rc = await runTx("Deploy", function (signer, fees) {
+      var factory = new ethers.ContractFactory(BUILD_ABI, BUILD_BYTECODE, signer);
+      return factory.deploy(fees).then(function (ct) { deployed = ct; return ct.deploymentTransaction(); });
+    });
+    if (!rc || !deployed) return;
+    var address = await deployed.getAddress();
+    els.noteDp.textContent = "";
+    var a = document.createElement("a");
+    a.href = CFG.explorer + "/address/" + address;
+    a.target = "_blank";
+    a.rel = "noopener";
+    a.style.color = "inherit";
+    a.textContent = "Your contract: " + short(address);
+    els.noteDp.appendChild(a);
+    setStatus("Contract deployed on QMS Testnet.", "ok");
+  }
+
+  function cleanText(v, re) { return re.test(v) ? v.trim() : null; }
+
+  async function deployNft() {
+    var name = cleanText(els.nftName.value, /^[A-Za-z0-9][A-Za-z0-9 _-]{0,31}$/);
+    var symbol = cleanText(els.nftSymbol.value, /^[A-Za-z0-9]{1,10}$/);
+    if (!name) { setStatus("Collection name: use 1 to 32 letters, numbers, spaces, - or _.", "err"); return; }
+    if (!symbol) { setStatus("Symbol: use 1 to 10 letters or numbers.", "err"); return; }
+    var deployed = null;
+    var rc = await runTx("Deploy NFT", function (signer, fees) {
+      var factory = new ethers.ContractFactory(NFT_ABI, NFT_BYTECODE, signer);
+      return factory.deploy(name, symbol, fees).then(function (ct) { deployed = ct; return ct.deploymentTransaction(); });
+    });
+    if (!rc || !deployed) return;
+    var address = await deployed.getAddress();
+    saveCollection(address);
+    showCollectionNote(address);
+    renderActions();
+    setStatus("NFT collection deployed. Press Mint NFT to mint your first token.", "ok");
+  }
+
+  async function mintNft() {
+    if (!lastCollection) return;
+    var rc = await runTx("Mint NFT", function (signer, fees) {
+      return new ethers.Contract(lastCollection, COLLECTION_MINT_ABI, signer).mint(fees);
+    });
+    if (rc) { setStatus("NFT minted. Open your collection in the explorer to see it.", "ok"); }
+  }
+
+  /* ------------------------------------------------------------------- tabs */
+  var TAB_ORDER = ["home", "nfts", "board"];
+  var tabEls = { home: els.tabHome, nfts: els.tabNfts, board: els.tabBoard };
+  var panelEls = { home: els.panelHome, nfts: els.panelNfts, board: els.panelBoard };
+  function showTab(name, focus) {
+    if (!panelEls[name]) name = "home";
+    TAB_ORDER.forEach(function (k) {
+      var on = k === name;
+      panelEls[k].hidden = !on;
+      tabEls[k].setAttribute("aria-selected", on ? "true" : "false");
+      tabEls[k].tabIndex = on ? 0 : -1;
+    });
+    if (focus) { tabEls[name].focus(); }
+    var hash = name === "home" ? "" : "#" + (name === "board" ? "leaderboard" : "nfts");
+    try { history.replaceState(null, "", window.location.pathname + window.location.search + hash); } catch (e) { /* not critical */ }
+    if (name === "board") { loadBoard(); loadMine(); }
+  }
+  TAB_ORDER.forEach(function (k, idx) {
+    tabEls[k].addEventListener("click", function () { showTab(k); });
+    tabEls[k].addEventListener("keydown", function (e) {
+      if (e.key === "ArrowRight") { showTab(TAB_ORDER[(idx + 1) % TAB_ORDER.length], true); }
+      if (e.key === "ArrowLeft") { showTab(TAB_ORDER[(idx + TAB_ORDER.length - 1) % TAB_ORDER.length], true); }
+    });
+  });
+  if (window.location.hash === "#leaderboard") { showTab("board"); }
+  else if (window.location.hash === "#nfts") { showTab("nfts"); }
 
   els.connect.addEventListener("click", connect);
+  els.nft.addEventListener("click", deployNft);
+  els.nftMint.addEventListener("click", mintNft);
   els.gm.addEventListener("click", function () { sendDaily("gm", "GM"); });
   els.gn.addEventListener("click", function () { sendDaily("gn", "GN"); });
   els.dp.addEventListener("click", deployContract);
 
-  var eth = getInjected();
-  if (eth && eth.on) {
-    eth.on("accountsChanged", function () { window.location.reload(); });
-    eth.on("chainChanged", function () { window.location.reload(); });
+  var eth0 = getInjected();
+  if (eth0 && eth0.on) {
+    eth0.on("accountsChanged", function () { window.location.reload(); });
+    eth0.on("chainChanged", function () { window.location.reload(); });
   }
+
+  renderActions();
 })();
 </script>
 </body>
