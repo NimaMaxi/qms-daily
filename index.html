@@ -177,6 +177,7 @@
   .fields { display: grid; grid-template-columns: 2fr 1fr; gap: 10px; margin: 0 0 18px; position: relative; }
   .fields label span { display: block; font-size: 0.78rem; opacity: 0.8; margin-bottom: 4px; }
   .fields input { width: 100%; font: inherit; padding: 10px 12px; border-radius: 11px; border: 1px solid rgba(26,11,46,0.35); background: rgba(255,255,255,0.55); color: #1a0b2e; }
+  .fields input::placeholder { color: rgba(26,11,46,0.5); opacity: 1; }
   .fields input:focus-visible { outline: 3px solid #1a0b2e; outline-offset: 1px; }
 
 
@@ -279,8 +280,8 @@
         <h2>Deploy NFT</h2>
         <p>Create your own NFT collection, then mint from it. Artwork is generated on-chain.</p>
         <div class="fields">
-          <label><span>Collection name</span><input id="nft-name" type="text" maxlength="32" value="My QMS NFT" autocomplete="off"></label>
-          <label><span>Symbol</span><input id="nft-symbol" type="text" maxlength="10" value="QMSN" autocomplete="off"></label>
+          <label><span>Collection name</span><input id="nft-name" type="text" maxlength="32" placeholder="e.g. My QMS NFT" autocomplete="off" spellcheck="false"></label>
+          <label><span>Symbol</span><input id="nft-symbol" type="text" maxlength="10" placeholder="e.g. QMSN" autocomplete="off" spellcheck="false" autocapitalize="characters"></label>
         </div>
         <div class="row"><button id="btn-nft" disabled>Deploy NFT</button><button id="btn-nft-mint" class="ghost" hidden>Mint NFT</button><span class="note" id="note-nft"></span></div>
       </section>
@@ -333,7 +334,7 @@
     chainHex: "0x4c18",
     rpc: "https://rpc.testnet.qms.finance",
     explorer: "https://testnet.qmsscan.io",
-    contract: "0x0000000000000000000000000000000000000000"
+    contract: "0x9506f13E178B00C21Dfd976466aDdb396178dB37"
   };
   var ZERO = "0x0000000000000000000000000000000000000000";
 
@@ -886,8 +887,10 @@
   async function deployNft() {
     var name = cleanText(els.nftName.value, /^[A-Za-z0-9][A-Za-z0-9 _-]{0,31}$/);
     var symbol = cleanText(els.nftSymbol.value, /^[A-Za-z0-9]{1,10}$/);
-    if (!name) { setStatus("Collection name: use 1 to 32 letters, numbers, spaces, - or _.", "err"); return; }
-    if (!symbol) { setStatus("Symbol: use 1 to 10 letters or numbers.", "err"); return; }
+    if (!els.nftName.value.trim()) { setStatus("Type a collection name first (for example: My QMS NFT).", "err"); els.nftName.focus(); return; }
+    if (!els.nftSymbol.value.trim()) { setStatus("Type a symbol first (for example: QMSN).", "err"); els.nftSymbol.focus(); return; }
+    if (!name) { setStatus("Collection name: use 1 to 32 letters, numbers, spaces, - or _.", "err"); els.nftName.focus(); return; }
+    if (!symbol) { setStatus("Symbol: use 1 to 10 letters or numbers.", "err"); els.nftSymbol.focus(); return; }
     var deployed = null;
     var rc = await runTx("Deploy NFT", function (signer, fees) {
       var factory = new ethers.ContractFactory(NFT_ABI, NFT_BYTECODE, signer);
